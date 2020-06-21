@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <h5>
+        <span jhiTranslate="geoTimeApp.classUnit.create.step3Title">Lecturer and rooms</span>
+    </h5>
+</div>
+<form id="class-unit-create-step3-form" #form="ngForm">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="assignRadio" value="subdepartment" id="assignToSubdepartment"
+               [(ngModel)]="assignSelectionType" (click)="clearValues()">
+        <label class="form-check-label" for="assignToSubdepartment" jhiTranslate="geoTimeApp.classUnit.assignToSubdepartment">
+            Assign to subdepartment
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="classUnitGroupRadio" value="user" id="assignToUser"
+               [(ngModel)]="assignSelectionType" (click)="clearValues()">
+        <label class="form-check-label" for="assignToUser" jhiTranslate="geoTimeApp.classUnit.assignToUser">
+            Assign directly to user
+        </label>
+    </div>
+    <ng-container *ngIf="assignSelectionType === 'subdepartment'">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.subdepartment" for="field_subdepartment">Subdepartment</label>
+            <select class="form-control" id="field_subdepartment" name="subdepartment" [(ngModel)]="classUnit.subdepartmentId"
+                    [required]="assignSelectionType === 'subdepartment'">
+                <option [ngValue]="subdepartmentOption.id" *ngFor="let subdepartmentOption of subdepartments; trackBy: trackSubdepartmentById">
+                    {{subdepartmentOption.shortName}}
+                </option>
+            </select>
+        </div>
+        <div [hidden]="!(form.controls.subdepartment?.dirty && form.controls.subdepartment?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!form.controls.subdepartment?.errors?.required"
+                   jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="assignSelectionType === 'user'">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.user" for="field_user">User</label>
+            <ngx-select class="form-control" id="field_user" name="user" [items]="selectUserData" [(ngModel)]="classUnit.userId"
+                        [required]="assignSelectionType === 'user'"></ngx-select>
+        </div>
+        <div [hidden]="!(form.controls.user?.dirty && form.controls.user?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!form.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </ng-container>
+    <div class="form-group">
+        <label jhiTranslate="geoTimeApp.classUnit.room" for="field_room">Room</label>
+        <ngx-select class="form-control" id="field_room" name="room" [items]="selectRoomData" [(ngModel)]="classUnit.roomIds"
+                    [multiple]="true" [autoClearSearch]="true" required></ngx-select>
+    </div>
+    <div [hidden]="!(form.controls.room?.dirty && form.controls.room?.invalid)">
+        <small class="form-text text-danger"
+               [hidden]="!form.controls.room?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
+        </small>
+    </div>
+</form>

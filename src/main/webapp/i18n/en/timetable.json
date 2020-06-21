@@ -1,0 +1,54 @@
+{
+    "geoTimeApp": {
+        "timetable" : {
+            "home": {
+                "title": "Timetable"
+            },
+            "title": {
+                "HALF1": {
+                    "A": "Semester (Week A)",
+                    "B": "Semester (Week B)"
+                },
+                "HALF2": {
+                    "A": "II half of semester (Week A)",
+                    "B": "II half of semester (Week B)"
+                }
+            },
+            "popover": {
+                "type": "Type",
+                "room": "Room",
+                "frequency": "Frequency",
+                "cancel": "Cancel",
+                "unlock": "Unlock",
+                "lock": "Lock"
+            },
+            "cancelConfirmation": {
+                "title": "Are you sure?",
+                "text": "Do you really want to cancel this event?",
+                "cancel": "Cancel",
+                "back": "Back",
+                "notAllowed": {
+                    "title": "Canceling classes is not possible",
+                    "text": "You can not change the schedule at this moment. You are allowed to modify schedule between {{startTime}} and {{endTime}}."
+                }
+            },
+            "alert": {
+                "schedulingTimeFrame": "You are allowed to modify schedule between {{startTime}} and {{endTime}} ({{subdepartment}})"
+            },
+            "room": "Room",
+            "classes": "Classes",
+            "fetchError": "Unexpected error while fetching schedule from server!",
+            "created": "A Class Unit successfully added to timetable",
+            "updated": "A timetable was successfully updated",
+            "deleted": "A Class Unit successfully removed from timetable"
+        }
+    },
+    "error": {
+        "timeFrameError": "You are not allowed to modify schedule now for selected department (due to scheduling time frames)",
+        "semesterEnded": "Cannot add schedule unit with start date after semester end date!",
+        "semesterNotStart": "Cannot add schedule unit with start date before semester start date!",
+        "bookingConflict": "Cannot add booking at the selected time (conflict found)",
+        "scheduleConflict": "Cannot add class to schedule at the selected time",
+        "requiredQuantityNotSatisfied": "The required number of classes cannot be added before the end of the semester"
+    }
+}

@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="scheduleUnit">
+            <h2><span jhiTranslate="geoTimeApp.scheduleUnit.detail.title">Schedule Unit</span> {{scheduleUnit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.scheduleUnit.classUnit">Class Unit</span></dt>
+                <dd>
+                    <div *ngIf="scheduleUnit.classUnitId">
+                        <a [routerLink]="['/class-unit', scheduleUnit.classUnitId]">{{scheduleUnit.classUnitTitle}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.scheduleUnit.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{scheduleUnit.startDate | date:'medium'}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.scheduleUnit.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{scheduleUnit.endDate | date:'medium'}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.scheduleUnit.room">Room</span></dt>
+                <dd>
+                    <div *ngIf="scheduleUnit.roomId">
+                        <a [routerLink]="['/room', scheduleUnit.roomId]">{{scheduleUnit.roomName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'schedule-unit/'+ scheduleUnit.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

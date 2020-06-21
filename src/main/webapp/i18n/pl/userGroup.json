@@ -1,0 +1,25 @@
+
+{
+    "geoTimeApp": {
+        "userGroup" : {
+            "home": {
+                "title": "Grupy użytkowników",
+                "createLabel": "Dodaj Grupę użytkowników",
+                "createOrEditLabel": "Dodaj lub edytuj: Grupę użytkowników"
+            },
+            "created": "Utworzono nową Grupę użytkowników z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Grupę użytkowników z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Grupę użytkowników z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Grupę użytkowników {{ id }}?"
+            },
+            "detail": {
+                "title": "Grupa użytkowników"
+            },
+            "name": "Nazwa",
+            "description": "Opis",
+            "userExt": "Użytkownik",
+            "schedulingTimeFrame": "Ramka czasowa planowania"
+        }
+    }
+}

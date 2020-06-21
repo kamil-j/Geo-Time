@@ -1,0 +1,26 @@
+
+{
+    "geoTimeApp": {
+        "scheduleUnit" : {
+            "home": {
+                "title": "Plan zajęć",
+                "createLabel": "Dodaj zajęcia do planu",
+                "createOrEditLabel": "Dodaj lub edytuj: Zajęcia na planie"
+            },
+            "created": "Dodano nowe zajęcia do planu z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono na planie zajęcia z identyfikatorem {{ param }}",
+            "deleted": "Usunięto z planu zajęcia z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć z planu zajęcia {{ id }}?"
+            },
+            "detail": {
+                "title": "Zaplanowane zajęcia"
+            },
+            "startDate": "Data rozpoczęcia",
+            "endDate": "Data zakończenia",
+            "classUnit": "Zajęcia",
+            "room": "Sala",
+            "filter": "Filtruj"
+        }
+    }
+}

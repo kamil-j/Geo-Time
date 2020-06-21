@@ -1,0 +1,103 @@
+<div>
+    <h2>
+        <span jhiTranslate="geoTimeApp.bookingUnit.home.title">Booking Units</span>
+        <div class="btn-group float-right" role="group">
+            <button class="btn btn-primary jh-create-entity create-booking-unit" [routerLink]="['/', { outlets: { popup: ['booking-unit-new'] } }]">
+                <span class="fa fa-plus"></span>
+                <span  jhiTranslate="geoTimeApp.bookingUnit.home.createLabel">
+            Create new Booking Unit
+            </span>
+            </button>
+            <div *jhiHasAnyAuthority="'ROLE_MANAGER'" class="btn-group" role="group">
+                <button id="filterBtn" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-filter"></span>
+                    <span class="d-none d-md-inline" jhiTranslate="geoTimeApp.bookingUnit.filter">Filter</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="filterBtn">
+                    <div *ngFor="let filteringOption of filteringOptions" class="dropdown-item">
+                        <input type="checkbox" name="filterOption" id="filterOption{{filteringOption.shortName}}" (change)="filter(filteringOption.id)" checked/>
+                        <label for="filterOption{{filteringOption.shortName}}">{{filteringOption.shortName}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="bookingUnits">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startTime"><span jhiTranslate="geoTimeApp.bookingUnit.startTime">Start Time</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="endTime"><span jhiTranslate="geoTimeApp.bookingUnit.endTime">End Time</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="day"><span jhiTranslate="geoTimeApp.bookingUnit.day">Day</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="week"><span jhiTranslate="geoTimeApp.bookingUnit.week">Week</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="semesterHalf"><span jhiTranslate="geoTimeApp.bookingUnit.semesterHalf">Semester Half</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="classUnit.title"><span jhiTranslate="geoTimeApp.bookingUnit.classUnit">Class Unit</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="room.name"><span jhiTranslate="geoTimeApp.bookingUnit.room">Room</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th jhiSortBy="locked"><span jhiTranslate="geoTimeApp.bookingUnit.locked">Locked</span>&nbsp;<span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let bookingUnit of bookingUnits ;trackBy: trackId">
+                <td><a [routerLink]="['../booking-unit', bookingUnit.id ]">{{bookingUnit.id}}</a></td>
+                <td>{{bookingUnit.startTime}}</td>
+                <td>{{bookingUnit.endTime}}</td>
+                <td jhiTranslate="{{'geoTimeApp.DayOfWeek.' + bookingUnit.day}}">{{bookingUnit.day}}</td>
+                <td jhiTranslate="{{'geoTimeApp.WeekType.' + bookingUnit.week}}">{{bookingUnit.week}}</td>
+                <td jhiTranslate="{{'geoTimeApp.SemesterHalf.' + bookingUnit.semesterHalf}}">{{bookingUnit.semesterHalf}}</td>
+                <td>
+                    <div *ngIf="bookingUnit.classUnitId">
+                        <a [routerLink]="['../class-unit', bookingUnit.classUnitId  ]" >{{bookingUnit.classUnitTitle}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="bookingUnit.roomId">
+                        <a [routerLink]="['../room', bookingUnit.roomId  ]" >{{bookingUnit.roomName}}</a>
+                    </div>
+                </td>
+                <td>{{bookingUnit.locked}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../booking-unit', bookingUnit.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'booking-unit/'+ bookingUnit.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'booking-unit/'+ bookingUnit.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="bookingUnits && bookingUnits.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

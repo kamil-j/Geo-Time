@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "department",
+            "otherEntityName": "department",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "shortName"
+        },
+        {
+            "relationshipName": "userExt",
+            "otherEntityName": "userExt",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "subdepartment"
+        },
+        {
+            "relationshipName": "schedulingTimeFrame",
+            "otherEntityName": "schedulingTimeFrame",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "subdepartment"
+        },
+        {
+            "relationshipName": "classUnit",
+            "otherEntityName": "classUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "subdepartment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "shortName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20190218194612",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "subdepartments",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

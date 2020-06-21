@@ -1,0 +1,39 @@
+id;title;description;duration;hours_quantity;frequency;academic_unit_group;only_semester_half;class_type_id;user_ext_id;semester_id;academic_unit_id;class_unit_group_id;subdepartment_id
+1;Programowanie w Java;null;90;60;EVERY_WEEK;null;false;1;6;2;1;null;2
+2;Programowanie w Java;null;90;60;EVERY_WEEK;null;false;4;6;2;1;null;2
+3;Programowanie w C;null;90;60;EVERY_WEEK;null;false;1;7;2;1;null;2
+4;Programowanie w C;null;90;60;EVERY_WEEK;null;false;4;7;2;1;null;2
+5;Logika rozmyta;null;135;60;EVERY_TWO_WEEKS;null;false;1;6;2;1;null;2
+6;Logika rozmyta;null;90;60;EVERY_WEEK;null;false;4;6;2;1;null;2
+7;Fizyka i Astronomia;null;90;60;EVERY_WEEK;null;false;1;7;2;1;null;2
+8;Fizyka i Astronomia;null;90;60;EVERY_WEEK;null;false;2;7;2;1;null;2
+9;GeoAnalysis;null;90;60;EVERY_TWO_WEEKS;null;false;1;8;2;1;null;2
+10;GeoAnalysis;null;90;60;EVERY_WEEK;null;false;2;8;2;1;null;2
+11;Bazy danych;null;90;60;EVERY_TWO_WEEKS;null;false;2;6;2;1;null;2
+12;Bazy danych;null;90;60;EVERY_TWO_WEEKS;null;false;2;6;2;1;null;2
+13;Języki formalne;null;90;60;EVERY_WEEK;null;false;2;7;2;1;null;2
+14;Data Mining;null;90;60;EVERY_WEEK;null;false;1;7;2;1;null;2
+15;Data Mining;null;90;60;EVERY_WEEK;null;false;2;7;2;1;null;2
+16;Systemy równoległe;null;90;60;EVERY_TWO_WEEKS;null;false;1;6;2;1;null;2
+17;Systemy równoległe;null;135;60;EVERY_WEEK;null;false;2;6;2;1;null;2
+18;Seminarium;Zajęcia dyplomowe;135;60;EVERY_TWO_WEEKS;null;false;3;7;2;1;null;2
+19;Spatial Analysis;null;135;60;EVERY_WEEK;null;false;1;8;2;1;null;2
+20;Spatial Analysis;null;135;60;EVERY_WEEK;null;false;2;8;2;1;null;2
+21;Fizyka i Astronomia;null;135;60;EVERY_WEEK;null;false;1;10;2;7;null;2
+22;Fizyka i Astronomia;null;90;60;EVERY_WEEK;null;false;4;10;2;7;null;2
+23;Fizyka Współczesna;null;90;60;EVERY_WEEK;null;false;1;11;2;7;null;2
+24;Fizyka Współczesna;null;90;60;EVERY_WEEK;null;false;2;11;2;7;null;2
+25;Matematyka;null;90;60;EVERY_WEEK;null;false;1;10;2;7;null;2
+26;Matematyka;null;90;60;EVERY_WEEK;null;false;4;10;2;7;null;2
+27;Chemia;null;135;60;EVERY_TWO_WEEKS;null;false;1;11;2;7;null;2
+28;Chemia;null;135;60;EVERY_WEEK;null;false;2;11;2;7;null;2
+29;Elektromagnetyzm;null;90;60;EVERY_TWO_WEEKS;null;false;1;10;2;7;null;2
+30;Elektromagnetyzm;null;90;60;EVERY_TWO_WEEKS;null;false;2;10;2;7;null;2
+31;Statystyka;null;90;60;EVERY_WEEK;null;false;1;9;2;7;null;2
+32;Statystyka;null;90;60;EVERY_WEEK;null;false;4;9;2;7;null;2
+33;English Course;null;135;60;EVERY_WEEK;null;false;4;12;2;7;null;2
+34;Spanish Course;null;90;60;EVERY_WEEK;null;false;4;12;2;7;null;2
+35;Optyka;null;90;60;EVERY_WEEK;null;false;1;10;2;7;null;2
+36;Optyka;null;90;60;EVERY_WEEK;null;false;2;10;2;7;null;2
+37;Programowanie proceduralne;null;90;60;EVERY_TWO_WEEKS;null;false;1;11;2;7;null;2
+38;Programowanie proceduralne;null;135;60;EVERY_WEEK;null;false;2;11;2;7;null;2

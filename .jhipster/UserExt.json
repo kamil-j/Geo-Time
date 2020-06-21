@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "subdepartment",
+            "otherEntityName": "subdepartment",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "shortName"
+        },
+        {
+            "relationshipName": "classUnit",
+            "otherEntityName": "classUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "userExt"
+        },
+        {
+            "relationshipName": "userGroup",
+            "otherEntityName": "userGroup",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20180425211942",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "users_ext",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

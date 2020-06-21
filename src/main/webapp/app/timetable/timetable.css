@@ -1,0 +1,61 @@
+#container-timetable #static-sidebar {
+    background-color: #353d47;
+}
+
+#container-timetable #sidebar {
+    background-color: #353d47;
+    height: 85.5vh;
+    z-index: 100;
+    min-width: 62px;
+    top: 63px;
+}
+
+#container-timetable .sidebar-closebtn {
+    color: #fff;
+}
+
+#container-timetable .sidebar-title {
+    color: #fff;
+}
+
+#container-timetable #sidebar::-webkit-scrollbar {
+    width: 0;
+}
+
+#container-timetable .external-event {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#container-timetable .external-event.disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+#container-timetable .external-event.drag-start {
+    opacity: 0.4;
+}
+
+#container-timetable .external-event-header {
+    color: #353d47;
+}
+
+#container-timetable .external-event-content {
+    color: #353d47;
+}
+
+#container-timetable .fc-time-grid .fc-slats td {
+    height: 2.5em !important;
+}
+
+#container-timetable .fc .fc-axis {
+    vertical-align: top;
+}
+
+#container-timetable #calendar .fc-header-toolbar {
+    margin-bottom: 4px;
+}
+
+#container-timetable #calendar .fc-header-toolbar h2 {
+    font-size: 1.8em;
+}

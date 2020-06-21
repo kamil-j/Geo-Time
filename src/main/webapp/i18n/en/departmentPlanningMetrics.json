@@ -1,0 +1,12 @@
+{
+    "geoTimeApp": {
+        "departmentPlanningMetrics": {
+            "title": "Planning Metrics",
+            "refresh.button": "Refresh",
+            "progress": "Planning progress",
+            "totalClasses": "Total classes to schedule",
+            "currentlyBookedClasses": "Currently scheduled",
+            "subdepartmentDetails": "Details"
+        }
+    }
+}

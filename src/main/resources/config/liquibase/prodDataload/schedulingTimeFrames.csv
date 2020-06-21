@@ -1,0 +1,3 @@
+id;start_time;end_time;user_group_id;subdepartment_id;semester_id
+1;2019-01-01 09:00:00;2019-06-20 20:00:00;2;2;2
+2;2019-01-01 09:00:00;2019-06-01 20:00:00;2;3;2

@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bookingUnit">
+            <h2><span jhiTranslate="geoTimeApp.bookingUnit.detail.title">Booking Unit</span> {{bookingUnit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.startTime">Start Time</span></dt>
+                <dd>
+                    <span>{{bookingUnit.startTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.endTime">End Time</span></dt>
+                <dd>
+                    <span>{{bookingUnit.endTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.day">Day</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'geoTimeApp.DayOfWeek.' + bookingUnit.day}}">{{bookingUnit.day}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.week">Week</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'geoTimeApp.WeekType.' + bookingUnit.week}}">{{bookingUnit.week}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.semesterHalf">Semester Half</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'geoTimeApp.SemesterHalf.' + bookingUnit.semesterHalf}}">{{bookingUnit.semesterHalf}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.locked">Locked</span></dt>
+                <dd>
+                    <span>{{bookingUnit.locked}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.classUnit">Class Unit</span></dt>
+                <dd>
+                    <div *ngIf="bookingUnit.classUnitId">
+                        <a [routerLink]="['/class-unit', bookingUnit.classUnitId]">{{bookingUnit.classUnitTitle}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.bookingUnit.room">Room</span></dt>
+                <dd>
+                    <div *ngIf="bookingUnit.roomId">
+                        <a [routerLink]="['/room', bookingUnit.roomId]">{{bookingUnit.roomName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'booking-unit/'+ bookingUnit.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

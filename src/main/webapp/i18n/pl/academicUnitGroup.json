@@ -1,0 +1,15 @@
+{
+    "geoTimeApp": {
+        "AcademicUnitGroup" : {
+            "null": "",
+            "GROUP1": "Grupa 1",
+            "GROUP2": "Grupa 2",
+            "GROUP3": "Grupa 3",
+            "GROUP4": "Grupa 4",
+            "GROUP5": "Grupa 5",
+            "GROUP6": "Grupa 6",
+            "GROUP7": "Grupa 7",
+            "GROUP8": "Grupa 8"
+        }
+    }
+}

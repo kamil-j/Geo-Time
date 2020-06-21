@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "department",
+            "otherEntityName": "department",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "shortName"
+        },
+        {
+            "relationshipName": "academicUnit",
+            "otherEntityName": "academicUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "studyField"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "shortName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20180417200933",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "study_fields",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

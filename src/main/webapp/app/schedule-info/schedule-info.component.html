@@ -1,0 +1,46 @@
+<div class="row justify-content-center mb-1">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body p-2">
+                <h5 class="card-title" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.title">Select degree and year</h5>
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="field_degree" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.degree">Degree</label>
+                    </div>
+                    <select class="custom-select" name="degree" (change)="degreeSelectChange()" [(ngModel)]="selectedDegree" id="field_degree" [disabled]="!availableDegrees || availableDegrees.length === 0">
+                        <option *ngIf="selectedDegree === undefined" value="undefined" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.choose" selected>Choose...</option>
+                        <option *ngFor="let degree of availableDegrees" value="{{degree}}">{{'geoTimeApp.AcademicUnitDegree.' + degree | translate}}</option>
+                    </select>
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="field_year" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.year">Year</label>
+                    </div>
+                    <select class="custom-select" name="year" (change)="yearSelectChange()" [(ngModel)]="selectedYear" id="field_year" [disabled]="!availableYears || availableYears.length === 0">
+                        <option *ngIf="selectedYear === undefined" value="undefined" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.choose" selected>Choose...</option>
+                        <option *ngFor="let year of availableYears" value="{{year}}">{{'geoTimeApp.AcademicUnitYear.' + year | translate}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-10 text-center" [ngClass]="selectedYear === undefined && selectedYear === undefined ? 'blur' : ''">
+        <jhi-alert></jhi-alert>
+
+        <div class="row justify-content-center mb-1" *ngIf="availableGroups?.length > 1">
+            <div class="col-xl-2 col-lg-3 col-md-4 input-group input-group-sm">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="groupSelect" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.group">Group</label>
+                </div>
+                <select class="custom-select" name="group" (change)="groupSelectChange()" [(ngModel)]="selectedGroup" id="groupSelect">
+                    <option *ngIf="selectedGroup === undefined" value="undefined" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.allGroups" selected>All</option>
+                    <option *ngIf="selectedGroup !== undefined" value="{{undefined}}" jhiTranslate="geoTimeApp.scheduleInfo.filterPanel.allGroups">All</option>
+                    <option *ngFor="let group of availableGroups" value="{{group}}">{{'geoTimeApp.AcademicUnitGroup.' + group | translate}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div id='calendar'></div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "studyField",
+            "otherEntityName": "studyField",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "classUnit",
+            "otherEntityName": "classUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "academicUnit"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "AcademicUnitYear",
+            "fieldValues": "YEAR1,YEAR2,YEAR3,YEAR4,YEAR5",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "degree",
+            "fieldType": "AcademicUnitDegree",
+            "fieldValues": "DEGREE1,DEGREE2",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        }
+    ],
+    "changelogDate": "20180723202710",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "academic_units",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

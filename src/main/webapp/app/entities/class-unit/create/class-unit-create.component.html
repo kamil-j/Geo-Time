@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <h2>
+        <span jhiTranslate="geoTimeApp.classUnit.create.title">Class Units</span>
+    </h2>
+</div>
+<div class="row justify-content-center">
+    <div class="col-12 px-3">
+        <jhi-form-wizard (onComplete)="onComplete()">
+            <div class="row justify-content-center mt-2 mb-0 mx-0 p-0" >
+                <div class="col-md-8 col-sm-12">
+                    <jhi-wizard-step [title]="'geoTimeApp.wizard.step1' | translate" [isValid]='step1.form?.valid'
+                                     (onActivate)="step1.load()">
+                        <jhi-class-unit-create-step1 #step1 [classUnit]="classUnit"></jhi-class-unit-create-step1>
+                    </jhi-wizard-step>
+                    <jhi-wizard-step [title]="'geoTimeApp.wizard.step2' | translate" [isValid]='step2.form?.valid'
+                                     (onActivate)="step2.load()">
+                        <jhi-class-unit-create-step2 #step2 [classUnit]="classUnit"></jhi-class-unit-create-step2>
+                    </jhi-wizard-step>
+                    <jhi-wizard-step [title]="'geoTimeApp.wizard.step3' | translate" [isValid]='step3.form?.valid'
+                                     (onActivate)="step3.load()">
+                        <jhi-class-unit-create-step3 #step3 [classUnit]="classUnit"></jhi-class-unit-create-step3>
+                    </jhi-wizard-step>
+                    <jhi-wizard-step [title]="'geoTimeApp.wizard.step4' | translate" [isValid]='step4.form?.valid'
+                                     (onActivate)="step4.load()">
+                        <jhi-class-unit-create-step4 #step4 [classUnit]="classUnit"></jhi-class-unit-create-step4>
+                    </jhi-wizard-step>
+                </div>
+            </div>
+        </jhi-form-wizard>
+    </div>
+</div>

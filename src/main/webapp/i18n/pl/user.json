@@ -1,0 +1,24 @@
+{
+    "geoTimeApp": {
+        "user": {
+            "home": {
+                "title": "Użytkownicy"
+            },
+            "timetable": {
+                "title": "Plan zajęć użytkownika",
+                "userDetails": {
+                    "title": "Użytkownik: {{userName}}"
+                }
+            },
+            "login": "Login",
+            "firstName": "Imię",
+            "lastName": "Nazwisko",
+            "email": "Email",
+            "userGroup": "Grupa użytkowników",
+            "subdepartment": "Katedra",
+            "activated": "Aktywny",
+            "deactivated": "Nieaktywny",
+            "timetableButton": "Plan zajęć"
+        }
+    }
+}

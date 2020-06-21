@@ -1,0 +1,24 @@
+
+{
+    "geoTimeApp": {
+        "roomType" : {
+            "home": {
+                "title": "Room Types",
+                "createLabel": "Create a new Room Type",
+                "createOrEditLabel": "Create or edit a Room Type"
+            },
+            "created": "A new Room Type is created with identifier {{ param }}",
+            "updated": "A Room Type is updated with identifier {{ param }}",
+            "deleted": "A Room Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Room Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Room Type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "room": "Rooms"
+        }
+    }
+}

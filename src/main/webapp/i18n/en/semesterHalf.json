@@ -1,0 +1,9 @@
+{
+    "geoTimeApp": {
+        "SemesterHalf" : {
+            "null": "",
+            "HALF1": "1st half",
+            "HALF2": "2nd half"
+        }
+    }
+}

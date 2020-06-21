@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Room.
+    -->
+    <changeSet id="20180416082409-0" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="room_type_id"
+                                 baseTableName="rooms"
+                                 constraintName="fk_room_room_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="room_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="rooms"
+                                 constraintName="fk_room_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="locations"/>
+
+        <addUniqueConstraint tableName="rooms"
+                             columnNames="name, location_id"
+                             constraintName="uq_rooms_name_location_id"/>
+
+    </changeSet>
+</databaseChangeLog>

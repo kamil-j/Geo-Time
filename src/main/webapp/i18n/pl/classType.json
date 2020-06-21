@@ -1,0 +1,26 @@
+
+{
+    "geoTimeApp": {
+        "classType" : {
+            "home": {
+                "title": "Typy zajęć",
+                "createLabel": "Dodaj Typ zajęć",
+                "createOrEditLabel": "Dodaj lub edytuj: Typ zajęć"
+            },
+            "created": "Utworzono nowy Typ zajęć z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Typ zajęć z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Typ zajęć z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Typ zajęć {{ id }}?"
+            },
+            "detail": {
+                "title": "Typy zajęć"
+            },
+            "name": "Nazwa",
+            "shortName": "Skrócona nazwa",
+            "description": "Opis",
+            "color": "Kolor",
+            "classUnit": "Zajęcia"
+        }
+    }
+}

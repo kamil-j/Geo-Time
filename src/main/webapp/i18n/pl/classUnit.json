@@ -1,0 +1,62 @@
+{
+    "geoTimeApp": {
+        "classUnit" : {
+            "home": {
+                "title": "Zajęcia",
+                "createLabel": "Dodaj Zajęcia",
+                "createOrEditLabel": "Dodaj lub edytuj: Zajęcia"
+            },
+            "created": "Utworzono nowe Zajęcia z identyfikatorem {{ param }}",
+            "uploaded": "Pomyślnie utworzono nowe zajęcia",
+            "updated": "Uaktualniono Zajęcia z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Zajęcia z identyfikatorem {{ param }}",
+            "create": {
+                "title": "Nowe zajęcia",
+                "step1Title": "Podstawowe informacje",
+                "step2Title": "Kierunek oraz grupa",
+                "step3Title": "Prowadzący oraz sala",
+                "step4Title": "Grupa zajęć",
+                "noClassUnitGroup": "Nie należy do żadnej z grup zajęć",
+                "newClassUnitGroup": "Utwórz nową grupę zajęć",
+                "existingClassUnitGroup": "Dodaj do istniejącej grupy zajęć"
+            },
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Zajęcia {{ id }}?"
+            },
+            "detail": {
+                "title": "Zajęcia"
+            },
+            "assignToSubdepartment": "Przypisz zajęcia do katedry",
+            "assignToUser": "Przypisz zajęcia bezpośrednio do prowadzącego",
+            "title": "Tytuł",
+            "description": "Opis",
+            "duration": "Czas trwania (min)",
+            "hoursQuantity": "Ilość godzin",
+            "frequency": "Częstotliwość",
+            "academicUnitGroup": "Grupa",
+            "classType": "Typ",
+            "user": "Prowadzący",
+            "room": "Sale",
+            "bookingUnit": "Rezerwacja",
+            "scheduleUnit": "Zaplanowane zajęcia",
+            "semester": "Semestr",
+            "academicUnit": "Jednostka akademicka",
+            "classUnitGroup": "Grupa zajęć",
+            "classUnitGroupName": "Nazwa grupy zajęć",
+            "subdepartment": "Katedra",
+            "filter": "Filtruj",
+            "assign": {
+                "button": "Przypisz",
+                "title": "Przypisz prowadzącego"
+            },
+            "upload": {
+                "title": "Załaduj plik zawierający zajęcia do utworzenia",
+                "choose": "Wybierz plik...",
+                "cancel": "Anuluj",
+                "uploadBtn": "Załaduj",
+                "inProgress": "Trwa ładowanie zajęć...",
+                "error": "Nie udało się załadować danych zawierających zajęcia"
+            }
+        }
+    }
+}

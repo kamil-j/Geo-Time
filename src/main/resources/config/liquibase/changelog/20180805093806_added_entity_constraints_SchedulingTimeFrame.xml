@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SchedulingTimeFrame.
+    -->
+    <changeSet id="20180805093806-0" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_group_id"
+                                 baseTableName="scheduling_time_frames"
+                                 constraintName="fk_scheduling_time_frames_user_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_groups"/>
+
+        <addForeignKeyConstraint baseColumnNames="subdepartment_id"
+                                 baseTableName="scheduling_time_frames"
+                                 constraintName="fk_scheduling_time_frame_subdepartment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subdepartments"/>
+
+        <addForeignKeyConstraint baseColumnNames="semester_id"
+                                 baseTableName="scheduling_time_frames"
+                                 constraintName="fk_scheduling_time_frames_semester_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="semesters"/>
+
+        <addUniqueConstraint tableName="scheduling_time_frames"
+                             columnNames="user_group_id, subdepartment_id, semester_id"
+                             constraintName="uq_scheduling_time_frames_user_group_subdepartment_semester"/>
+
+    </changeSet>
+</databaseChangeLog>

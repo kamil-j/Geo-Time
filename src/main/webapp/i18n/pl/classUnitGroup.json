@@ -1,0 +1,25 @@
+
+{
+    "geoTimeApp": {
+        "classUnitGroup" : {
+            "home": {
+                "title": "Grupy zajęć",
+                "createLabel": "Dodaj Grupę zajęć",
+                "createOrEditLabel": "Dodaj lub edytuj: Grupę zajęć"
+            },
+            "created": "Utworzono nową Grupę zajęć z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Grupę zajęć z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Grupę zajęć z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Grupę zajęć {{ id }}?"
+            },
+            "detail": {
+                "title": "Grupa zajęć"
+            },
+            "name": "Nazwa",
+            "description": "Opis",
+            "classUnit": "Zajęcia",
+            "department": "Wydział"
+        }
+    }
+}

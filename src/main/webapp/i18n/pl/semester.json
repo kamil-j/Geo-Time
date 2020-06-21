@@ -1,0 +1,27 @@
+
+{
+    "geoTimeApp": {
+        "semester" : {
+            "home": {
+                "title": "Semestry",
+                "createLabel": "Dodaj Semestr",
+                "createOrEditLabel": "Dodaj lub edytuj: Semestr"
+            },
+            "created": "Utworzono nowy Semestr z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Semestr z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Semestr z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Semestr {{ id }}?"
+            },
+            "detail": {
+                "title": "Semestr"
+            },
+            "name": "Nazwa",
+            "startDate": "Data rozpoczęcia",
+            "endDate": "Data zakończenia",
+            "active": "Aktywny",
+            "classUnit": "Zajęcia",
+            "schedulingTimeFrame": "Ramy czasowe planowania"
+        }
+    }
+}

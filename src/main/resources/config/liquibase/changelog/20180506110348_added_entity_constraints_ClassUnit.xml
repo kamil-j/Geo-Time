@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ClassUnit.
+    -->
+    <changeSet id="20180506110348-0" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="class_type_id"
+                                 baseTableName="class_units"
+                                 constraintName="fk_class_units_class_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="class_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_ext_id"
+                                 baseTableName="class_units"
+                                 constraintName="fk_class_units_user_ext_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users_ext"/>
+
+        <addForeignKeyConstraint baseColumnNames="class_unit_id"
+                                 baseTableName="class_units_rooms"
+                                 constraintName="fk_class_units_rooms_class_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="class_units"/>
+        <addForeignKeyConstraint baseColumnNames="room_id"
+                                 baseTableName="class_units_rooms"
+                                 constraintName="fk_class_units_rooms_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rooms"/>
+
+        <addForeignKeyConstraint baseColumnNames="semester_id"
+                                 baseTableName="class_units"
+                                 constraintName="fk_class_units_semester_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="semesters"/>
+
+        <addForeignKeyConstraint baseColumnNames="academic_unit_id"
+                                 baseTableName="class_units"
+                                 constraintName="fk_class_units_academic_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="academic_units"/>
+
+        <addForeignKeyConstraint baseColumnNames="class_unit_group_id"
+                                 baseTableName="class_units"
+                                 constraintName="fk_class_units_class_unit_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="class_unit_groups"/>
+
+        <addForeignKeyConstraint baseColumnNames="subdepartment_id"
+                                 baseTableName="class_units"
+                                 constraintName="fk_class_units_subdepartment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subdepartments"/>
+
+    </changeSet>
+</databaseChangeLog>

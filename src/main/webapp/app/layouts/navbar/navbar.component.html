@@ -1,0 +1,275 @@
+<nav class="navbar navbar-dark navbar-expand-md jh-navbar">
+    <div class="jh-logo-container float-left">
+        <a class="jh-navbar-toggler d-lg-none float-right" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a class="navbar-brand logo float-left" routerLink="/">
+            <span class="logo-img"></span>
+            <span jhiTranslate="global.title" class="navbar-title">GeoTime</span> <span class="navbar-version">{{version}}</span>
+        </a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngSwitch]="isAuthenticated()">
+        <ul class="navbar-nav ml-auto">
+            <ng-container *ngSwitchCase="false">
+                <li *ngFor="let department of departments;trackBy: trackDepartmentById" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="schedule-menu">
+                        <span>
+                            <i class="fa fa-university" aria-hidden="true"></i>
+                            <span>{{department.shortName}}</span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu>
+                        <li *ngFor="let studyField of department.studyFields;trackBy: trackStudyFieldById">
+                            <a class="dropdown-item" [routerLink]="['../schedule-info', studyField.id ]" routerLinkActive="active">
+                                <span>
+                                    <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                                    <span>{{studyField.name}}</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ng-container>
+            <li *jhiHasAnyAuthority="'ROLE_USER'" class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="timetable">
+                    <span>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.timetable">Timetable</span>
+                    </span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_PLANNER']" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="planning-menu">
+                    <span>
+                        <i class="fa fa-hourglass-half" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.planning.main">
+                            Planning
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                        <a class="dropdown-item" routerLink="semester" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-calendar-o" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.planning.semester">Semester</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="scheduling-time-frame" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-road" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.schedulingTimeFrame">Scheduling Plan</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="['ROLE_MANAGER', 'ROLE_PLANNER']">
+                        <a class="dropdown-item" routerLink="class-unit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.planning.classUnit">Class Unit</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="class-unit-group" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-sitemap" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.planning.classUnitGroup">Class Unit Group</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="['ROLE_MANAGER', 'ROLE_PLANNER']">
+                        <a class="dropdown-item" routerLink="booking-unit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-gavel" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.planning.bookingUnit">Bookings</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="department-planning-metrics" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-heartbeat" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.planning.departmentMetrics">Metrics</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_PLANNER'">
+                        <a class="dropdown-item" routerLink="subdepartment-planning-metrics" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-heartbeat" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.planning.subdepartmentMetrics">Metrics</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <div class="dropdown-divider p-0 m-1"></div>
+                        <a class="dropdown-item" routerLink="schedule-unit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-calendar" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.planning.scheduleUnit">Schedule</span>
+                        </a>
+                    </li>
+                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                </ul>
+            </li>
+            <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+            <li *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_PLANNER']" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+                    <span>
+                        <i class="fa fa-cubes" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.main">
+                            Entities
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                        <a class="dropdown-item" routerLink="department" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-university" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.department">Department</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                        <a class="dropdown-item" routerLink="user-group" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-users" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.userGroup">User Group</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                        <a class="dropdown-item" routerLink="room-type" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-plus-square" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.roomType">Room Types</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                        <a class="dropdown-item" routerLink="class-type" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-plus-square" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.classType">Class Types</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="subdepartment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-university" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.subdepartment">Subdepartments</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="location" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-building" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.location">Locations</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="room" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-plus-square" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.room">Rooms</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="study-field" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-graduation-cap" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.studyField">Study Field</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                        <a class="dropdown-item" routerLink="academic-unit" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="fa fa-fw fa-plus-square" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.academicUnit">Academic Unit</span>
+                        </a>
+                    </li>
+                    <li *jhiHasAnyAuthority="['ROLE_MANAGER', 'ROLE_PLANNER']">
+                        <a class="dropdown-item" routerLink="user-management" routerLinkActive="active">
+                            <i class="fa fa-fw fa-users" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.userManagement">Users</span>
+                        </a>
+                    </li>
+                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                </ul>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
+                    <span>
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.admin.main">Administration</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu>
+                    <li>
+                        <a class="dropdown-item" routerLink="jhi-metrics" routerLinkActive="active">
+                            <i class="fa fa-fw fa-tachometer" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="jhi-health" routerLinkActive="active">
+                            <i class="fa fa-fw fa-heart" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.admin.health">Health</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="jhi-configuration" routerLinkActive="active">
+                            <i class="fa fa-fw fa-list" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="audits" routerLinkActive="active">
+                            <i class="fa fa-fw fa-bell" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.admin.audits">Audits</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="logs" routerLinkActive="active">
+                            <i class="fa fa-fw fa-tasks" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.admin.logs">Logs</span>
+                        </a>
+                    </li>
+                    <li *ngIf="swaggerEnabled">
+                        <a class="dropdown-item" routerLink="docs" routerLinkActive="active">
+                            <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.admin.apidocs">API</span>
+                        </a>
+                    </li>
+                    <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                </ul>
+            </li>
+            <li ngbDropdown class="nav-item dropdown pointer" *ngIf="languages">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown" *ngIf="languages.length > 1">
+                    <span>
+                        <i class="fa fa-flag" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.language">Language</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu *ngIf="languages.length > 1">
+                    <li *ngFor="let language of languages">
+                        <a class="dropdown-item" [jhiActiveMenu]="language" href="javascript:void(0);" (click)="changeLanguage(language);">{{language | findLanguageFromKey}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li ngbDropdown class="nav-item dropdown pointer" placement="bottom-right" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
+                  <span>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span jhiTranslate="global.menu.account.main">
+                      Account
+                    </span>
+                  </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu>
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="settings" routerLinkActive="active">
+                            <i class="fa fa-fw fa-wrench" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.account.settings">Settings</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="password" routerLinkActive="active">
+                            <i class="fa fa-fw fa-clock-o" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.account.password">Password</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" (click)="logout()" id="logout">
+                            <i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.account.logout">Sign out</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="false">
+                        <a class="dropdown-item" (click)="login()" id="login">
+                            <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.account.login">Sign in</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

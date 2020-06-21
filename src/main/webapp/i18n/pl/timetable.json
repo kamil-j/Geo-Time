@@ -1,0 +1,54 @@
+{
+    "geoTimeApp": {
+        "timetable" : {
+            "home": {
+                "title": "Plan zajęć"
+            },
+            "title": {
+                "HALF1": {
+                    "A": "Semestr (Tydzień A)",
+                    "B": "Semestr (Tydzień B)"
+                },
+                "HALF2": {
+                    "A": "II połowa semestru (Tydzień A)",
+                    "B": "II połowa semestru (Tydzień B)"
+                }
+            },
+            "popover": {
+                "type": "Typ",
+                "room": "Sala",
+                "frequency": "Częstotliwość",
+                "cancel": "Anuluj",
+                "unlock": "Odblokuj",
+                "lock": "Zablokuj"
+            },
+            "cancelConfirmation": {
+                "title": "Jesteś pewny?",
+                "text": "Czy na pewno chcesz odwołać te zajęcia?",
+                "cancel": "Odwołaj",
+                "back": "Powrót",
+                "notAllowed": {
+                    "title": "Anulowanie zajęć niemożliwe",
+                    "text": "Nie możesz w tym momencie dokonać zmian w planie zajęć. Jest to możliwe w terminie od {{startTime}} do {{endTime}}"
+                }
+            },
+            "alert": {
+                "schedulingTimeFrame": "Możesz planować zajęcia od {{startTime}} do {{endTime}} ({{subdepartment}})"
+            },
+            "room": "Sala",
+            "classes": "Zajęcia",
+            "fetchError": "Nieoczekiwany błąd podczas pobierania planu zajęć!",
+            "created": "Zajęcia pomyślnie dodane do planu zajęć",
+            "updated": "Plan zajęć uaktualniony pomyślnie",
+            "deleted": "Zajęcia pomyślnie usunięte z planu zajęć"
+        }
+    },
+    "error": {
+        "timeFrameError": "Nie możesz teraz modyfikować zajęć dla tego wydziału (ze względu na harmonogram planowania)",
+        "semesterEnded": "Nie można dodać zajęć zaplanowanych na już zakończony semestr!",
+        "semesterNotStart": "Nie można dodać zajęć przed rozpoczęciem semestru, na które zostały zaplanowane!",
+        "bookingConflict": "Nie można dodać rezerwacji w wybranym czasie (konflikt)",
+        "scheduleConflict": "Nie można dodać zajęć do planu w wybranym czasie",
+        "requiredQuantityNotSatisfied": "Wymagana ilość zajęć nie może zostać zrealizowana przed końcem semestru"
+    }
+}

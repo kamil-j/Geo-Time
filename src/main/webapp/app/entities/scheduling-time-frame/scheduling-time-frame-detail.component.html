@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="schedulingTimeFrame">
+            <h2><span jhiTranslate="geoTimeApp.schedulingTimeFrame.detail.title">Scheduling Time Frame</span> {{schedulingTimeFrame.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.schedulingTimeFrame.subdepartment">Subdepartment</span></dt>
+                <dd>
+                    <div *ngIf="schedulingTimeFrame.subdepartmentId">
+                        <a [routerLink]="['/subdepartment', schedulingTimeFrame.subdepartmentId]">{{schedulingTimeFrame.subdepartmentShortName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.schedulingTimeFrame.userGroup">User Group</span></dt>
+                <dd>
+                    <div *ngIf="schedulingTimeFrame.userGroupId">
+                        <a [routerLink]="['/user-group', schedulingTimeFrame.userGroupId]">{{schedulingTimeFrame.userGroupName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.schedulingTimeFrame.startTime">Start Time</span></dt>
+                <dd>
+                    <span>{{schedulingTimeFrame.startTime | date:'medium'}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.schedulingTimeFrame.endTime">End Time</span></dt>
+                <dd>
+                    <span>{{schedulingTimeFrame.endTime | date:'medium'}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.schedulingTimeFrame.semester">Semester</span></dt>
+                <dd>
+                    <div *ngIf="schedulingTimeFrame.semesterId">
+                        <a [routerLink]="['/semester', schedulingTimeFrame.semesterId]">{{schedulingTimeFrame.semesterName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'scheduling-time-frame/'+ schedulingTimeFrame.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

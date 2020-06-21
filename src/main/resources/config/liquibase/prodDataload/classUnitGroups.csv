@@ -1,0 +1,18 @@
+id;name;description;department_id
+1;System UNIX G1;;2
+2;System UNIX G2;;2
+3;System UNIX G3;;2
+4;Sieci komputerowe G1;;2
+5;Sieci komputerowe G2;;2
+6;Sieci komputerowe G3;;2
+7;Sieci komputerowe G4;;2
+8;Aktualne problemy Informatyki Stosowanej II;mhabrat+acichy;2
+9;Mineralogia zaawansowana G1;;2
+10;Mineralogia zaawansowana G2;;2
+11;Petrologia skał magmowych i metamorficznych W;;2
+12;Petrologia skał magmowych i metamorficznych CL G1;;2
+13;Petrologia skał magmowych i metamorficznych CL G2;;2
+14;Petrologia skał magmowych i metamorficznych ZP;;2
+15;Jubilerstwo i wycena kamieni G1;;2
+16;Jubilerstwo i wycena kamieni G2;;2
+17;Geochemia pierwiastków i paragenez mineralnych;;2

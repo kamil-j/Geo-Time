@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <h5>
+        <span jhiTranslate="geoTimeApp.classUnit.create.step4Title">Group of classes</span>
+    </h5>
+</div>
+<form id="class-unit-create-step4-form" #form="ngForm">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="classUnitGroupRadio" value="" id="noClassUnitGroup"
+               [(ngModel)]="classUnitGroupSelectionType" (click)="clearValues()">
+        <label class="form-check-label" for="noClassUnitGroup" jhiTranslate="geoTimeApp.classUnit.create.noClassUnitGroup">
+            No class unit group
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="classUnitGroupRadio" value="existing" id="existingClassUnitGroup"
+               [(ngModel)]="classUnitGroupSelectionType" (click)="clearValues()">
+        <label class="form-check-label" for="existingClassUnitGroup" jhiTranslate="geoTimeApp.classUnit.create.existingClassUnitGroup">
+            Add to existing class unit group
+        </label>
+    </div>
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="radio" name="classUnitGroupRadio" value="new" id="newClassUnitGroup"
+               [(ngModel)]="classUnitGroupSelectionType" (click)="clearValues()">
+        <label class="form-check-label" for="newClassUnitGroup" jhiTranslate="geoTimeApp.classUnit.create.newClassUnitGroup">
+            Create new class unit group
+        </label>
+    </div>
+    <ng-container *ngIf="classUnitGroupSelectionType === 'new'">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.classUnitGroupName" for="field_classUnitGroupName">Class unit group name</label>
+            <input type="text" class="form-control" name="classUnitGroupName" id="field_classUnitGroupName"
+                   [(ngModel)]="classUnit.classUnitGroup.name" [required]="classUnitGroupSelectionType === 'new'"/>
+            <div [hidden]="!(form.controls.classUnitGroupName?.dirty && form.controls.classUnitGroupName?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!form.controls.classUnitGroupName?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="classUnitGroupSelectionType === 'existing'">
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.classUnitGroup" for="field_classUnitGroup">Class Unit Group</label>
+            <ngx-select class="form-control" id="field_classUnitGroup" name="classUnitGroup" [items]="selectClassUnitGroupData"
+                        [required]="classUnitGroupSelectionType === 'existing'" [(ngModel)]="classUnit.classUnitGroup.id"></ngx-select>
+        </div>
+    </ng-container>
+</form>

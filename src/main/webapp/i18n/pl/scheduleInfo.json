@@ -1,0 +1,28 @@
+
+{
+    "geoTimeApp": {
+        "scheduleInfo" : {
+            "home": {
+                "title": "Plan zajęć"
+            },
+            "event": {
+                "room": "Sala"
+            },
+            "popover": {
+                "type": "Typ",
+                "room": "Sala",
+                "lecturer": "Prowadzący",
+                "frequency": "Częstotliwość"
+            },
+            "filterPanel" : {
+                "title": "Wybierz stopień oraz rok",
+                "choose": "Wybierz...",
+                "degree": "Stopień",
+                "year": "Rok",
+                "group": "Grupa",
+                "allGroups": "Wszystkie"
+            },
+            "fetchError": "Nieoczekiwany błąd podczas pobierania planu zajęć!"
+        }
+    }
+}

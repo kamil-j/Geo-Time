@@ -1,0 +1,26 @@
+
+{
+    "geoTimeApp": {
+        "scheduleUnit" : {
+            "home": {
+                "title": "Schedule",
+                "createLabel": "Create a new Schedule Unit",
+                "createOrEditLabel": "Create or edit a Schedule Unit"
+            },
+            "created": "A new Schedule Unit is created with identifier {{ param }}",
+            "updated": "A Schedule Unit is updated with identifier {{ param }}",
+            "deleted": "A Schedule Unit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Schedule Unit {{ id }}?"
+            },
+            "detail": {
+                "title": "Schedule Unit"
+            },
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "classUnit": "Class Unit",
+            "room": "Room",
+            "filter": "Filter"
+        }
+    }
+}

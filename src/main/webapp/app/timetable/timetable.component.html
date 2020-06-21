@@ -1,0 +1,183 @@
+<div *ngIf="user && managementViewMode" class="row justify-content-center mb-1">
+    <div class="card col-md-10 col-11 text-center p-1">
+        <div class="card-body p-0">
+            <h5 class="card-title p-0 m-0">
+                {{ 'geoTimeApp.user.timetable.userDetails.title' | translate:{userName: user.login} }}
+            </h5>
+            <p class="card-text p-0 m-0">
+                {{user.firstName}} {{user.lastName}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="container-timetable" class="row justify-content-center">
+
+    <!-- If small screen -->
+    <ng-container *ngIf="isTouchDevice">
+        <a class="text-gray-dark d-md-none mb-2" data-toggle="collapse" href="#sidebar" role="button" aria-expanded="false" aria-controls="sidebar">
+            <i class="fa fa-bars fa-lg">
+                <span *ngIf="classUnits?.length > 0" class="badge badge-primary">{{classUnits?.length}}</span>
+            </i>
+        </a>
+
+        <div id="sidebar" class="col-6 d-md-none fade fixed-top h-80 collapse border border-secondary rounded">
+            <div class="row px-1 mb-1 justify-content-between border-bottom">
+                <div class="sidebar-title">
+                    <span jhiTranslate="geoTimeApp.timetable.classes" class="font-weight-bold">Classes</span>
+                </div>
+                <div>
+                    <a data-toggle="collapse" href="#sidebar" class="sidebar-closebtn">
+                        <i class="fa fa-lg fa-close"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-1" *ngFor="let classUnit of classUnits;trackBy: trackClassUnitById">
+                <div class="col-10 rounded border border-dark external-event" jhiDraggable [data]="classUnit"
+                     [canUserModifySchedule]="canUserModifySchedule" [user]="user" [timetableView]="timetableView">
+                    <div class="row px-1 external-event-header">
+                        <div>
+                            <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+                            <span class="font-weight-bold">{{classUnit.title}}</span>
+                        </div>
+                    </div>
+                    <hr class="m-1"/>
+                    <div class="external-event-content">
+                        <div class="row px-1 justify-content-center">
+                            <span class="text-info font-weight-bold">{{classUnit.academicUnitName}}</span>
+                            <span class="text-secondary font-weight-bold">{{getAcademicUnitTitle(classUnit)}}</span>
+                        </div>
+                        <div class="row px-1 justify-content-center">
+                            <span class="font-weight-bold">{{classUnit.classTypeName}}</span>
+                        </div>
+                        <div class="row px-1 justify-content-center">
+                            <span jhiTranslate="{{'geoTimeApp.ClassFrequency.' + classUnit.frequency}}">{{classUnit.frequency}}</span>
+                        </div>
+                        <div class="row px-1 justify-content-center">
+                            <div class="input-group input-group-sm mb-1">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="roomSelectInputMobile" jhiTranslate="{{'geoTimeApp.timetable.room'}}">Room</label>
+                                </div>
+                                <select id="roomSelectInputMobile" class="custom-select" [(ngModel)]="classUnit.selectedRoomId" name="selectedRoom">
+                                    <option *ngFor="let room of classUnit.rooms" [value]="room.id">{{room.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="classUnits && classUnits.length">
+                <div class="row justify-content-center">
+                    <ngb-pagination size="sm" [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage"
+                                    [maxSize]="5" [rotate]="true" (pageChange)="loadUserClassUnitsPage(page)">
+                    </ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- If large screen -->
+    <ng-container *ngIf="!isTouchDevice">
+        <div id="static-sidebar" class="d-none d-md-block col-md-2 border border-secondary rounded">
+            <div class="row justify-content-center mb-1 sidebar-title border-bottom">
+                <span jhiTranslate="geoTimeApp.timetable.classes" class="font-weight-bold">Classes</span>
+            </div>
+
+            <div class="row justify-content-center mb-1" *ngFor="let classUnit of classUnits;trackBy: trackClassUnitById">
+                <div class="col-10 pb-1 rounded border border-dark external-event" jhiDraggable [data]="classUnit"
+                     [canUserModifySchedule]="canUserModifySchedule" [user]="user" [timetableView]="timetableView">
+                    <div class="row px-1 external-event-header">
+                        <div>
+                            <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+                            <span class="font-weight-bold">{{classUnit.title}}</span>
+                        </div>
+                    </div>
+                    <hr class="m-1"/>
+                    <div class="external-event-content">
+                        <div class="row px-1 justify-content-center">
+                            <span class="text-info font-weight-bold">{{classUnit.academicUnitName}}</span>
+                            <span class="text-secondary font-weight-bold">{{getAcademicUnitTitle(classUnit)}}</span>
+                        </div>
+                        <div class="row px-1 justify-content-center">
+                            <span class="font-weight-bold">{{classUnit.classTypeName}}</span>
+                        </div>
+                        <div class="row px-1 justify-content-center">
+                            <span jhiTranslate="{{'geoTimeApp.ClassFrequency.' + classUnit.frequency}}">{{classUnit.frequency}}</span>
+                        </div>
+                        <div class="row px-1 justify-content-center">
+                            <div class="input-group input-group-sm mb-1">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="roomSelectInput" jhiTranslate="{{'geoTimeApp.timetable.room'}}">Room</label>
+                                </div>
+                                <select id="roomSelectInput" class="custom-select" [(ngModel)]="classUnit.selectedRoomId" name="selectedRoom">
+                                    <option *ngFor="let room of classUnit.rooms" [value]="room.id">{{room.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="classUnits && classUnits.length">
+                <div class="row justify-content-center">
+                    <ngb-pagination size="sm" [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage"
+                                    [maxSize]="5" [rotate]="true" (pageChange)="loadUserClassUnitsPage(page)">
+                    </ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div class="col-md-8 text-center">
+        <div *ngIf="schedulingTimeFrame" class="row justify-content-center px-2">
+            <div class="col-12 alert alert-info text-center p-1 mb-2" role="alert">
+                {{ 'geoTimeApp.timetable.alert.schedulingTimeFrame' | translate:
+                {startTime: schedulingTimeFrame.startTime | date:'dd/MM HH:mm', endTime: schedulingTimeFrame.endTime | date:'dd/MM HH:mm', subdepartment: schedulingTimeFrame.subdepartmentShortName} }}
+            </div>
+        </div>
+        <jhi-alert></jhi-alert>
+        <div id='calendar'></div>
+    </div>
+</div>
+
+<div id="cancelEventConfirmationModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div *ngIf="canUserModifySchedule" class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" jhiTranslate="geoTimeApp.timetable.cancelConfirmation.title">Are you sure?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p jhiTranslate="geoTimeApp.timetable.cancelConfirmation.text">Do you really want to cancel this event?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    <span jhiTranslate="geoTimeApp.timetable.cancelConfirmation.back">Back</span>
+                </button>
+                <form (ngSubmit)="removeBooking()">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                        <span jhiTranslate="geoTimeApp.timetable.cancelConfirmation.cancel">Cancel</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div *ngIf="!canUserModifySchedule" class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" jhiTranslate="geoTimeApp.timetable.cancelConfirmation.notAllowed.title">Canceling classes is not possible</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div *ngIf="schedulingTimeFrame" class="modal-body">
+                <p>
+                    {{ 'geoTimeApp.timetable.cancelConfirmation.notAllowed.text' | translate:
+                    {startTime: schedulingTimeFrame.startTime | date:'dd/MM HH:mm', endTime: schedulingTimeFrame.endTime | date:'dd/MM HH:mm'} }}
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    <span jhiTranslate="geoTimeApp.timetable.cancelConfirmation.back">Back</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

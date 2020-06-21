@@ -1,0 +1,29 @@
+<div class="modal-body" *ngIf="isUploading" >
+    <div class="row justify-content-center">
+        <i class="fa fa-spinner fa-pulse fa-4x"></i>
+    </div>
+    <div class="row justify-content-center">
+        <h4 class="modal-title" jhiTranslate="userManagement.upload.inProgress">Uploading in-progress...</h4>
+    </div>
+</div>
+
+<form name="uploadForm" *ngIf="!isUploading" (ngSubmit)="uploadFile()">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="userManagement.upload.title">Upload a CSV file containing users to create</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="uploadFileInput" jhiTranslate="userManagement.upload.choose">Choose file...</label>
+            <input type="file" class="form-control-file" id="uploadFileInput" (change)="selectFile($event)">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="userManagement.upload.cancel">Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="!file">
+            <span class="fa fa-upload"></span>&nbsp;<span jhiTranslate="userManagement.upload.uploadBtn">Upload</span>
+        </button>
+    </div>
+</form>

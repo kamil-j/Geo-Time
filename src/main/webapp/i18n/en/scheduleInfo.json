@@ -1,0 +1,28 @@
+
+{
+    "geoTimeApp": {
+        "scheduleInfo" : {
+            "home": {
+                "title": "Schedule"
+            },
+            "event": {
+                "room": "Room"
+            },
+            "popover": {
+                "type": "Type",
+                "room": "Room",
+                "lecturer": "Lecturer",
+                "frequency": "Frequency"
+            },
+            "filterPanel" : {
+                "title": "Select degree and year",
+                "choose": "Choose...",
+                "degree": "Degree",
+                "year": "Year",
+                "group": "Group",
+                "allGroups": "All"
+            },
+            "fetchError": "Unexpected error while fetching schedule from server!"
+        }
+    }
+}

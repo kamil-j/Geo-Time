@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="academicUnit">
+            <h2><span jhiTranslate="geoTimeApp.academicUnit.detail.title">Academic Unit</span> {{academicUnit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.academicUnit.name">Name</span></dt>
+                <dd>
+                    <span>{{academicUnit.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.academicUnit.description">Description</span></dt>
+                <dd>
+                    <span>{{academicUnit.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.academicUnit.studyField">Study Field</span></dt>
+                <dd>
+                    <div *ngIf="academicUnit.studyFieldId">
+                        <a [routerLink]="['/study-field', academicUnit.studyFieldId]">{{academicUnit.studyFieldName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.academicUnit.degree">Degree</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'geoTimeApp.AcademicUnitDegree.' + academicUnit.degree}}">{{academicUnit.degree}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.academicUnit.year">Year</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'geoTimeApp.AcademicUnitYear.' + academicUnit.year}}">{{academicUnit.year}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'academic-unit/'+ academicUnit.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

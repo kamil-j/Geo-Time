@@ -1,0 +1,29 @@
+
+{
+    "geoTimeApp": {
+        "room" : {
+            "home": {
+                "title": "Sale",
+                "createLabel": "Dodaj Salę",
+                "createOrEditLabel": "Dodaj lub edytuj: Salę"
+            },
+            "created": "Utworzono nową Salę z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Salę z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Salę z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Salę {{ id }}?"
+            },
+            "detail": {
+                "title": "Sala"
+            },
+            "name": "Nazwa",
+            "capacity": "Pojemność",
+            "roomType": "Typ",
+            "location": "Lokalizacja",
+            "department": "Wydział",
+            "classUnit": "Zajęcia",
+            "bookingUnit": "Rezerwacje",
+            "scheduleUnit": "Zaplanowane zajęcia"
+        }
+    }
+}

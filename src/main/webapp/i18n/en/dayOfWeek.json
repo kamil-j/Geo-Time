@@ -1,0 +1,12 @@
+{
+    "geoTimeApp": {
+        "DayOfWeek" : {
+            "null": "",
+            "MON": "Monday",
+            "TUE": "Tuesday",
+            "WED": "Wednesday",
+            "THU": "Thursday",
+            "FRI": "Friday"
+        }
+    }
+}

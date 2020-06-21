@@ -1,0 +1,62 @@
+<div *ngIf="arePlanningMetricsLoading" class="row justify-content-center">
+    <i class="fa fa-spinner fa-pulse fa-4x"></i>
+</div>
+
+<div *ngIf="!arePlanningMetricsLoading">
+    <div class="mb-1">
+        <h3>
+            <button *jhiHasAnyAuthority="'ROLE_MANAGER'" type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+            <span jhiTranslate="geoTimeApp.subdepartmentPlanningMetrics.title">Planning Metrics</span>
+            <button class="btn btn-primary float-right" (click)="refresh()">
+                <span class="fa fa-refresh"></span> <span jhiTranslate="geoTimeApp.subdepartmentPlanningMetrics.refresh.button">Refresh</span>
+            </button>
+        </h3>
+    </div>
+    <jhi-alert></jhi-alert>
+    <div *ngIf="planningMetrics" class="col-12 card mb-2">
+        <div class="card-body px-0">
+            <h5 class="card-title">{{planningMetrics.subdepartmentShortName}}</h5>
+            <div class="mb-3">
+                <h6 class="card-subtitle mb-1 text-muted" jhiTranslate="geoTimeApp.subdepartmentPlanningMetrics.progress">Planning progress</h6>
+                <ngb-progressbar type="success" [max]="planningMetrics.classQuantity" [value]="planningMetrics.bookedClassQuantity" [striped]="true" [animated]="false">
+                    <span>{{planningMetrics.bookedClassQuantity * 100 / planningMetrics.classQuantity  | number:'1.0-0'}}%</span>
+                </ngb-progressbar>
+                <p class="card-text">
+                    {{ 'geoTimeApp.subdepartmentPlanningMetrics.totalClasses' | translate }}: {{planningMetrics.classQuantity}}<br />
+                    {{ 'geoTimeApp.subdepartmentPlanningMetrics.currentlyBookedClasses' | translate }}: {{planningMetrics.bookedClassQuantity}}
+                </p>
+            </div>
+            <div>
+                <h6 class="card-subtitle mb-2 text-muted" jhiTranslate="geoTimeApp.subdepartmentPlanningMetrics.users">Users</h6>
+                <div class="table-responsive">
+                    <table class="table table-striped border">
+                        <thead>
+                        <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="sortUsersMetrics.bind(this)">
+                            <th jhiSortBy="userName"><span jhiTranslate="geoTimeApp.subdepartmentPlanningMetrics.user">User</span>&nbsp;<span class="fa fa-sort"></span></th>
+                            <th jhiSortBy="groupName"><span jhiTranslate="geoTimeApp.subdepartmentPlanningMetrics.group">Group</span>&nbsp;<span class="fa fa-sort"></span></th>
+                            <th jhiSortBy="planningProgress"><span jhiTranslate="geoTimeApp.subdepartmentPlanningMetrics.progress">Planning progress</span>&nbsp;<span class="fa fa-sort"></span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let userPlanningMetrics of planningMetrics.usersPlanningMetrics">
+                            <td>
+                                <a [routerLink]="['/timetable', userPlanningMetrics.userName ]" >{{userPlanningMetrics.userName}}</a>
+                            </td>
+                            <td>{{userPlanningMetrics.groupName}}</td>
+                            <td>
+                                <ngb-progressbar type="info" [max]="userPlanningMetrics.classQuantity" [value]="userPlanningMetrics.bookedClassQuantity" [striped]="true" [animated]="false">
+                                    <span>{{userPlanningMetrics.bookedClassQuantity * 100 / userPlanningMetrics.classQuantity | number:'1.0-0'}}%</span>
+                                </ngb-progressbar>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

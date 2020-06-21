@@ -1,0 +1,154 @@
+<div>
+    <h2>
+        <span jhiTranslate="geoTimeApp.classUnit.home.title">Class Units</span>
+        <div *jhiHasAnyAuthority="'ROLE_MANAGER'" class="btn-group float-right" role="group">
+            <button class="btn btn-primary jh-create-entity create-class-unit"
+                    [routerLink]="['../class-unit-new']">
+                <span class="fa fa-plus"></span>
+                <span jhiTranslate="geoTimeApp.classUnit.home.createLabel">
+            Create new Class Unit
+            </span>
+            </button>
+            <div class="btn-group" role="group">
+                <button id="filterBtn" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-filter"></span>
+                    <span class="d-none d-md-inline" jhiTranslate="geoTimeApp.classUnit.filter">Filter</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="filterBtn">
+                    <div *ngFor="let filteringOption of filteringOptions" class="dropdown-item">
+                        <input type="checkbox" name="filterOption" id="filterOption{{filteringOption.shortName}}" (change)="filter(filteringOption.id)" checked/>
+                        <label for="filterOption{{filteringOption.shortName}}">{{filteringOption.shortName}}</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary" [routerLink]="['/', { outlets: { popup: 'class-unit/upload' } }]">
+                <span class="fa fa-upload"></span>
+            </button>
+        </div>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="classUnits">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span>&nbsp;<span class="fa fa-sort"></span>
+                </th>
+                <th jhiSortBy="title"><span jhiTranslate="geoTimeApp.classUnit.title">Title</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th jhiSortBy="classType.name"><span jhiTranslate="geoTimeApp.classUnit.classType">Class Type</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th jhiSortBy="duration"><span jhiTranslate="geoTimeApp.classUnit.duration">Duration</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th jhiSortBy="hoursQuantity"><span
+                    jhiTranslate="geoTimeApp.classUnit.hoursQuantity">Hours Quantity</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th jhiSortBy="frequency"><span
+                    jhiTranslate="geoTimeApp.classUnit.frequency">Frequency</span>&nbsp;<span class="fa fa-sort"></span>
+                </th>
+                <th jhiSortBy="academicUnit.name"><span
+                    jhiTranslate="geoTimeApp.classUnit.academicUnit">Academic Unit</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th jhiSortBy="academicUnitGroup"><span jhiTranslate="geoTimeApp.classUnit.academicUnitGroup">Academic Unit Group</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th *jhiHasAnyAuthority="'ROLE_MANAGER'" jhiSortBy="subdepartment.shortName"><span jhiTranslate="geoTimeApp.classUnit.subdepartment">Subdepartment</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th jhiSortBy="userExt.user.login"><span jhiTranslate="geoTimeApp.classUnit.user">User</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th *jhiHasAnyAuthority="'ROLE_MANAGER'" jhiSortBy="classUnitGroup.name"><span jhiTranslate="geoTimeApp.classUnit.classUnitGroup">Class Unit Group</span>&nbsp;<span
+                    class="fa fa-sort"></span></th>
+                <th jhiSortBy="semester.name"><span
+                    jhiTranslate="geoTimeApp.classUnit.semester">Semester</span>&nbsp;<span class="fa fa-sort"></span>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let classUnit of classUnits ;trackBy: trackId">
+                <td><a [routerLink]="['../class-unit', classUnit.id ]">{{classUnit.id}}</a></td>
+                <td>{{classUnit.title}}</td>
+                <td>
+                    <div *ngIf="classUnit.classTypeId">
+                        <a [routerLink]="['../class-type', classUnit.classTypeId ]">{{classUnit.classTypeName}}</a>
+                    </div>
+                </td>
+                <td>{{classUnit.duration}}</td>
+                <td>{{classUnit.hoursQuantity}}</td>
+                <td jhiTranslate="{{'geoTimeApp.ClassFrequency.' + classUnit.frequency}}">{{classUnit.frequency}}</td>
+                <td>
+                    <div *ngIf="classUnit.academicUnitId">
+                        <a [routerLink]="['../academic-unit', classUnit.academicUnitId ]">{{classUnit.academicUnitName}}</a>
+                    </div>
+                </td>
+                <td jhiTranslate="{{'geoTimeApp.AcademicUnitGroup.' + classUnit.academicUnitGroup}}">{{classUnit.academicUnitGroup}}</td>
+                <td *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                    <div *ngIf="classUnit.subdepartmentId">
+                        <a [routerLink]="['../subdepartment', classUnit.subdepartmentId ]" >{{classUnit.subdepartmentShortName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="classUnit.userId">
+                        <a [routerLink]="['../user-management', classUnit.userLogin ]">{{classUnit.userLogin}}</a>
+                    </div>
+                </td>
+                <td *jhiHasAnyAuthority="'ROLE_MANAGER'">
+                    <div *ngIf="classUnit.classUnitGroupId">
+                        <a [routerLink]="['../class-unit-group', classUnit.classUnitGroupId ]">{{classUnit.classUnitGroupName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="classUnit.semesterId">
+                        <a [routerLink]="['../semester', classUnit.semesterId ]">{{classUnit.semesterName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../class-unit', classUnit.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit" *jhiHasAnyAuthority="'ROLE_MANAGER'"
+                                [routerLink]="['/', { outlets: { popup: 'class-unit/'+ classUnit.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" *jhiHasAnyAuthority="'ROLE_MANAGER'"
+                                [routerLink]="['/', { outlets: { popup: 'class-unit/'+ classUnit.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                        <button type="submit" *jhiHasAnyAuthority="'ROLE_PLANNER'"
+                                [routerLink]="['/', { outlets: { popup: 'class-unit/'+ classUnit.id + '/assign'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-user-plus"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="geoTimeApp.classUnit.assign.button">Assign</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="classUnits && classUnits.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                            [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                            [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

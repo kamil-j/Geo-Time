@@ -1,0 +1,9 @@
+{
+    "geoTimeApp": {
+        "AcademicUnitDegree" : {
+            "null": "",
+            "DEGREE1": "1st Degree",
+            "DEGREE2": "2nd Degree"
+        }
+    }
+}

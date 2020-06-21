@@ -1,0 +1,13 @@
+id;login;password_hash;first_name;last_name;email;activated;lang_key;created_by;created_date;last_modified_by
+1;system;$2a$10$DuAJEtIK8gwB909rMg.3P.6.MpcCXtBN7Tu29SaMmx2.rQpgB4Xnq;System;System;system@localhost;true;pl;system;1970-01-01 00:00:00;system
+2;admin;$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC;Administrator;Administrator;admin@localhost;true;en;system;1970-01-01 00:00:00;system
+3;user;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;User;User;user@localhost;true;pl;system;1970-01-01 00:00:00;system
+4;manager;$2a$10$59TWuqHwE3AVDz3/SSu.1uLYMOdYOdsjgRnMhb30EQcfhDORFA3QG;Manager;Manager;manager@localhost;true;pl;system;1970-01-01 00:00:00;system
+5;mkowalski;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Marek;Kowalski;mkowalski@mail.com;true;pl;system;1970-01-01 00:00:00;system
+6;tnowak;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Tadeusz;Nowak;tnowak@mail.com;true;pl;system;1970-01-01 00:00:00;system
+7;jnowaczek;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Joanna;Nowaczek;jnowaczek@mail.com;true;pl;system;1970-01-01 00:00:00;system
+8;jdoe;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;John;Doe;jdoe@mail.com;true;en;system;1970-01-01 00:00:00;system
+9;mkowalczyk;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Mirosław;Kowalczyk;mkowalczyk@mail.com;true;pl;system;1970-01-01 00:00:00;system
+10;akowal;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Agnieszka;Kowal;akowal@mail.com;true;pl;system;1970-01-01 00:00:00;system
+11;akrawczyk;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Adam;Krawczyk;akrawczyk@mail.com;true;pl;system;1970-01-01 00:00:00;system
+12;ssmith;$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K;Sandra;Smith;ssmith@mail.com;true;en;system;1970-01-01 00:00:00;system

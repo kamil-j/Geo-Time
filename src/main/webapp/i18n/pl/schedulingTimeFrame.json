@@ -1,0 +1,26 @@
+
+{
+    "geoTimeApp": {
+        "schedulingTimeFrame" : {
+            "home": {
+                "title": "Harmonogram planowania",
+                "createLabel": "Dodaj Harmonogram planowania",
+                "createOrEditLabel": "Dodaj lub edytuj: Harmonogram planowania"
+            },
+            "created": "Utworzono nowy Harmonogram planowania z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Harmonogram planowania z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Harmonogram planowania z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Harmonogram planowania {{ id }}?"
+            },
+            "detail": {
+                "title": "Harmonogram planowania"
+            },
+            "startTime": "Czas rozpoczęcia",
+            "endTime": "Czas zakończenia",
+            "userGroup": "Grupa użytkowników",
+            "subdepartment": "Katedra",
+            "semester": "Semestr"
+        }
+    }
+}

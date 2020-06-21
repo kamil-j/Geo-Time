@@ -1,0 +1,12 @@
+{
+    "geoTimeApp": {
+        "AcademicUnitYear" : {
+            "null": "",
+            "YEAR1": "1st Year",
+            "YEAR2": "2nd Year",
+            "YEAR3": "3rd Year",
+            "YEAR4": "4th Year",
+            "YEAR5": "5th Year"
+        }
+    }
+}

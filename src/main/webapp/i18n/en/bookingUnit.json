@@ -1,0 +1,30 @@
+
+{
+    "geoTimeApp": {
+        "bookingUnit" : {
+            "home": {
+                "title": "Bookings",
+                "createLabel": "Create a new Booking Unit",
+                "createOrEditLabel": "Create or edit a Booking Unit"
+            },
+            "created": "A new Booking Unit is created with identifier {{ param }}",
+            "updated": "A Booking Unit is updated with identifier {{ param }}",
+            "deleted": "A Booking Unit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Booking Unit {{ id }}?"
+            },
+            "detail": {
+                "title": "Booking Unit"
+            },
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "day": "Day",
+            "week": "Week type",
+            "semesterHalf": "Semester half",
+            "locked": "Locked",
+            "classUnit": "Class Unit",
+            "room": "Room",
+            "filter": "Filter"
+        }
+    }
+}

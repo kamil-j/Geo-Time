@@ -1,0 +1,10 @@
+<div class="row justify-content-center" [ngSwitch]="isAuthenticated()">
+    <div *ngSwitchCase="false" class="col-md-8 text-center">
+        <h1 jhiTranslate="home.title">Welcome to schedule planning system GeoTime!</h1>
+        <p jhiTranslate="home.subtitle">Select the appropriate faculty and field of study from the menu to go to the schedule.</p>
+    </div>
+    <div *ngSwitchCase="true" class="col-md-8 text-center">
+        <h1 jhiTranslate="home.title">Welcome to schedule planning system GeoTime!</h1>
+        <p jhiTranslate="home.subtitle2">Select the timetable from the menu to create your schedule.</p>
+    </div>
+</div>

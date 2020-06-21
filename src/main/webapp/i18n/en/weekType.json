@@ -1,0 +1,9 @@
+{
+    "geoTimeApp": {
+        "WeekType" : {
+            "null": "",
+            "A": "A",
+            "B": "B"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+
+{
+    "geoTimeApp": {
+        "studyField" : {
+            "home": {
+                "title": "Kierunki studiów",
+                "createLabel": "Dodaj kierunek studiów",
+                "createOrEditLabel": "Dodaj lub edytuj: Kierunek studiów"
+            },
+            "created": "Utworzono nowy kierunek studiów z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono kierunek studiów z identyfikatorem {{ param }}",
+            "deleted": "Usunięto kierunek studiów z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć kierunek studiów {{ id }}?"
+            },
+            "detail": {
+                "title": "Kierunek studiów"
+            },
+            "name": "Nazwa",
+            "shortName": "Skrócona nazwa",
+            "department": "Wydział",
+            "academicUnit": "Jednostka akademicka"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "geoTimeApp": {
+        "user": {
+            "home": {
+                "title": "Users"
+            },
+            "timetable": {
+                "title": "User timetable",
+                "userDetails": {
+                    "title": "User: {{userName}}"
+                }
+            },
+            "login": "Login",
+            "firstName": "First Name",
+            "lastName": "Last name",
+            "email": "Email",
+            "userGroup": "User group",
+            "subdepartment": "Subdepartment",
+            "activated": "Activated",
+            "deactivated": "Deactivated",
+            "timetableButton": "Timetable"
+        }
+    }
+}

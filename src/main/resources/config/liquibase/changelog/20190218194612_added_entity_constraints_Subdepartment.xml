@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Subdepartment.
+    -->
+    <changeSet id="20190218194612-0" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="subdepartments"
+                                 constraintName="fk_subdepartments_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="departments"/>
+
+        <addUniqueConstraint tableName="subdepartments"
+                             columnNames="name, department_id"
+                             constraintName="uq_subdepartments_name_department"/>
+
+        <addUniqueConstraint tableName="subdepartments"
+                             columnNames="short_name, department_id"
+                             constraintName="uq_subdepartments_short_name_department"/>
+    </changeSet>
+</databaseChangeLog>

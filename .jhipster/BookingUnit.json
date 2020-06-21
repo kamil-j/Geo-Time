@@ -1,0 +1,72 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "classUnit",
+            "otherEntityName": "classUnit",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "title",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "bookingUnit"
+        },
+        {
+            "relationshipName": "room",
+            "otherEntityName": "room",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "startTime",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "day",
+            "fieldType": "DayOfWeek",
+            "fieldValues": "MON,TUE,WED,THU,FRI",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "week",
+            "fieldType": "WeekType",
+            "fieldValues": "A,B",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "semesterHalf",
+            "fieldType": "SemesterHalf",
+            "fieldValues": "HALF1,HALF2"
+        },
+        {
+            "fieldName": "locked",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20181124123552",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "booking_units",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

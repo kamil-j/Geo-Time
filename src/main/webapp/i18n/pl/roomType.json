@@ -1,0 +1,24 @@
+
+{
+    "geoTimeApp": {
+        "roomType" : {
+            "home": {
+                "title": "Typy Sal",
+                "createLabel": "Dodaj Typ Sal",
+                "createOrEditLabel": "Dodaj lub edytuj: Typ Sal"
+            },
+            "created": "Utworzono nowy Typ Sal z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Typ Sal z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Typ Sal z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Typ Sal {{ id }}?"
+            },
+            "detail": {
+                "title": "Typ Sal"
+            },
+            "name": "Nazwa",
+            "description": "Opis",
+            "room": "Sale"
+        }
+    }
+}

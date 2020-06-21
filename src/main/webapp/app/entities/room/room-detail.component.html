@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="room">
+            <h2><span jhiTranslate="geoTimeApp.room.detail.title">Room</span> {{room.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.room.name">Name</span></dt>
+                <dd>
+                    <span>{{room.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.room.roomType">Room Type</span></dt>
+                <dd>
+                    <div *ngIf="room.roomTypeId">
+                        <a [routerLink]="['/room-type', room.roomTypeId]">{{room.roomTypeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.room.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="room.locationId">
+                        <a [routerLink]="['/location', room.locationId]">{{room.locationName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.room.capacity">Capacity</span></dt>
+                <dd>
+                    <span>{{room.capacity}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'room/'+ room.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

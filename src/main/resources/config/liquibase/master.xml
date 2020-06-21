@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <!--Departments must be loaded before everything else, others entity use departments id's-->
+    <include file="config/liquibase/changelog/20180417154101_added_entity_Department.xml" relativeToChangelogFile="false"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180413211015_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180413212951_added_entity_RoomType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180416082409_added_entity_Room.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180417200933_added_entity_StudyField.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180425175432_added_entity_UserExt.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180506110348_added_entity_ClassUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180506175125_added_entity_ClassType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180513205024_added_entity_ScheduleUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180618153837_added_entity_Semester.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180723202710_added_entity_AcademicUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180803232834_added_entity_UserGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180805093806_added_entity_SchedulingTimeFrame.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181004172500_added_entity_ClassUnitGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181124123552_added_entity_BookingUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218194612_added_entity_Subdepartment.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180416082409_added_entity_constraints_Room.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180425175432_added_entity_constraints_UserExt.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180417200933_added_entity_constraints_StudyField.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180413211015_added_entity_constraints_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180506110348_added_entity_constraints_ClassUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180513205024_added_entity_constraints_ScheduleUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180723202710_added_entity_constraints_AcademicUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180805093806_added_entity_constraints_SchedulingTimeFrame.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181004172500_added_entity_constraints_ClassUnitGroup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181124123552_added_entity_constraints_BookingUnit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190218194612_added_entity_constraints_Subdepartment.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

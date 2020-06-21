@@ -1,0 +1,220 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myClassUnitLabel" jhiTranslate="geoTimeApp.classUnit.home.createOrEditLabel">Create or edit a Class Unit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!classUnit.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="classUnit.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="classUnit.title" required maxlength="80"/>
+            <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 80 }">
+                   This field cannot be longer than 80 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="classUnit.description" maxlength="100"/>
+            <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.description?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.classType" for="field_classType">Class Type</label>
+            <select class="form-control" id="field_classType" name="classType" [(ngModel)]="classUnit.classTypeId"  required>
+                <option [ngValue]="classTypeOption.id" *ngFor="let classTypeOption of classtypes; trackBy: trackClassTypeById">{{classTypeOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.classType?.dirty && editForm.controls.classType?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.classType?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.duration" for="field_duration">Duration</label>
+            <input type="number" class="form-control" name="duration" id="field_duration"
+                [(ngModel)]="classUnit.duration" required min="0" max="525600"/>
+            <div [hidden]="!(editForm.controls.duration?.dirty && editForm.controls.duration?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.duration?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.duration?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                    This field should be at least 0.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.duration?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 525600 }">
+                    This field cannot be more than 525600.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.duration?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.hoursQuantity" for="field_hoursQuantity">Hours Quantity</label>
+            <input type="number" class="form-control" name="hoursQuantity" id="field_hoursQuantity"
+                [(ngModel)]="classUnit.hoursQuantity" required min="0" max="1000"/>
+            <div [hidden]="!(editForm.controls.hoursQuantity?.dirty && editForm.controls.hoursQuantity?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.hoursQuantity?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.hoursQuantity?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                    This field should be at least 0.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.hoursQuantity?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 1000 }">
+                    This field cannot be more than 1000.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.hoursQuantity?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.frequency" for="field_frequency">Frequency</label>
+            <select class="form-control" name="frequency" [(ngModel)]="classUnit.frequency" id="field_frequency"  required>
+                <option value="SINGLE">{{'geoTimeApp.ClassFrequency.SINGLE' | translate}}</option>
+                <option value="EVERY_WEEK">{{'geoTimeApp.ClassFrequency.EVERY_WEEK' | translate}}</option>
+                <option value="EVERY_TWO_WEEKS">{{'geoTimeApp.ClassFrequency.EVERY_TWO_WEEKS' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.frequency?.dirty && editForm.controls.frequency?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.frequency?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.academicUnit" for="field_academicUnit">Academic Unit</label>
+            <select class="form-control" id="field_academicUnit" name="academicUnit" [(ngModel)]="classUnit.academicUnitId"  required>
+                <option [ngValue]="academicUnitOption.id" *ngFor="let academicUnitOption of academicunits; trackBy: trackAcademicUnitById">{{academicUnitOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.academicUnit?.dirty && editForm.controls.academicUnit?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.academicUnit?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.academicUnitGroup" for="field_academicUnitGroup">Academic Unit Group</label>
+            <select class="form-control" name="academicUnitGroup" [(ngModel)]="classUnit.academicUnitGroup" id="field_academicUnitGroup" >
+                <option [ngValue]="null"></option>
+                <option value="GROUP1">{{'geoTimeApp.AcademicUnitGroup.GROUP1' | translate}}</option>
+                <option value="GROUP2">{{'geoTimeApp.AcademicUnitGroup.GROUP2' | translate}}</option>
+                <option value="GROUP3">{{'geoTimeApp.AcademicUnitGroup.GROUP3' | translate}}</option>
+                <option value="GROUP4">{{'geoTimeApp.AcademicUnitGroup.GROUP4' | translate}}</option>
+                <option value="GROUP5">{{'geoTimeApp.AcademicUnitGroup.GROUP5' | translate}}</option>
+                <option value="GROUP6">{{'geoTimeApp.AcademicUnitGroup.GROUP6' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="geoTimeApp.classUnit.room" for="field_room">Room</label>
+            <select class="form-control" id="field_room" multiple name="room" [(ngModel)]="classUnit.rooms" required>
+                <option [ngValue]="getSelected(classUnit.rooms, roomOption)" *ngFor="let roomOption of rooms; trackBy: trackRoomById">{{roomOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.room?.dirty && editForm.controls.room?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.room?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="assignRadio" value="subdepartment" id="assignToSubdepartment"
+                   [(ngModel)]="assignSelectionType" (click)="clearValues()">
+            <label class="form-check-label" for="assignToSubdepartment" jhiTranslate="geoTimeApp.classUnit.assignToSubdepartment">
+                Assign to subdepartment
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="classUnitGroupRadio" value="user" id="assignToUser"
+                   [(ngModel)]="assignSelectionType" (click)="clearValues()">
+            <label class="form-check-label" for="assignToUser" jhiTranslate="geoTimeApp.classUnit.assignToUser">
+                Assign directly to user
+            </label>
+        </div>
+        <ng-container *ngIf="assignSelectionType === 'subdepartment'">
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.subdepartment" for="field_subdepartment">Subdepartment</label>
+                <select class="form-control" id="field_subdepartment" name="subdepartment" [(ngModel)]="classUnit.subdepartmentId"
+                        [required]="assignSelectionType === 'subdepartment'">
+                    <option [ngValue]="subdepartmentOption.id" *ngFor="let subdepartmentOption of subdepartments; trackBy: trackSubdepartmentById">{{subdepartmentOption.shortName}}</option>
+                </select>
+            </div>
+            <div [hidden]="!(editForm.controls.subdepartment?.dirty && editForm.controls.subdepartment?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.subdepartment?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="assignSelectionType === 'user'">
+            <div class="form-group">
+                <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.user" for="field_user">User</label>
+                <select class="form-control" id="field_user" name="user" [(ngModel)]="classUnit.userId" [required]="assignSelectionType === 'user'">
+                    <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                </select>
+            </div>
+            <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </ng-container>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.classUnitGroup" for="field_classUnitGroup">Class Unit Group</label>
+            <select class="form-control" id="field_classUnitGroup" name="classUnitGroup" [(ngModel)]="classUnit.classUnitGroupId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="classUnitGroupOption.id" *ngFor="let classUnitGroupOption of classunitgroups; trackBy: trackClassUnitGroupById">{{classUnitGroupOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.semester" for="field_semester">Semester</label>
+            <select class="form-control" id="field_semester" name="semester" [(ngModel)]="classUnit.semesterId"  required>
+                <option [ngValue]="semesterOption.id" *ngFor="let semesterOption of semesters; trackBy: trackSemesterById">{{semesterOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.semester?.dirty && editForm.controls.semester?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.semester?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

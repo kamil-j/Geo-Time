@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity StudyField.
+    -->
+    <changeSet id="20180417200933-0" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="study_fields"
+                                 constraintName="fk_study_field_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="departments"/>
+
+        <addUniqueConstraint tableName="study_fields"
+                             columnNames="name, department_id"
+                             constraintName="uq_study_fields_name_department"/>
+
+        <addUniqueConstraint tableName="study_fields"
+                             columnNames="short_name, department_id"
+                             constraintName="uq_study_fields_short_name_department"/>
+
+    </changeSet>
+</databaseChangeLog>

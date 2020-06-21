@@ -1,0 +1,146 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "classType",
+            "otherEntityName": "classType",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "userExt",
+            "otherEntityName": "userExt",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "user.login"
+        },
+        {
+            "relationshipName": "room",
+            "otherEntityName": "room",
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "classUnit"
+        },
+        {
+            "relationshipName": "bookingUnit",
+            "otherEntityName": "bookingUnit",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "classUnit"
+        },
+        {
+            "relationshipName": "scheduleUnit",
+            "otherEntityName": "scheduleUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "classUnit"
+        },
+        {
+            "relationshipName": "semester",
+            "otherEntityName": "semester",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "academicUnit",
+            "otherEntityName": "academicUnit",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "classUnitGroup",
+            "otherEntityName": "classUnitGroup",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "subdepartment",
+            "otherEntityName": "subdepartment",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "shortName"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "80"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "525600"
+        },
+        {
+            "fieldName": "hoursQuantity",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": "0",
+            "fieldValidateRulesMax": "1000"
+        },
+        {
+            "fieldName": "frequency",
+            "fieldType": "ClassFrequency",
+            "fieldValues": "SINGLE,EVERY_DAY,EVERY_WEEK,EVERY_TWO_WEEKS,EVERY_MONTH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "academicUnitGroup",
+            "fieldType": "AcademicUnitGroup",
+            "fieldValues": "GROUP1,GROUP2,GROUP3,GROUP4,GROUP5,GROUP6",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "onlySemesterHalf",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180506110348",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "class_units",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="geoTimeApp.schedulingTimeFrame.home.title">Scheduling Time Frames</span>
+        <button class="btn btn-primary float-right jh-create-entity create-scheduling-time-frame" [routerLink]="['/', { outlets: { popup: ['scheduling-time-frame-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="geoTimeApp.schedulingTimeFrame.home.createLabel">
+            Create new Scheduling Time Frame
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="schedulingTimeFrames">
+        <table class="table table-striped">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                    <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span>&nbsp;<span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="subdepartment.shortName"><span jhiTranslate="geoTimeApp.schedulingTimeFrame.subdepartment">Subdepartment</span>&nbsp;<span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="userGroup.name"><span jhiTranslate="geoTimeApp.schedulingTimeFrame.userGroup">User Group</span>&nbsp;<span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="startTime"><span jhiTranslate="geoTimeApp.schedulingTimeFrame.startTime">Start Time</span>&nbsp;<span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="endTime"><span jhiTranslate="geoTimeApp.schedulingTimeFrame.endTime">End Time</span>&nbsp;<span class="fa fa-sort"></span></th>
+                    <th jhiSortBy="semester.name"><span jhiTranslate="geoTimeApp.schedulingTimeFrame.semester">Semester</span>&nbsp;<span class="fa fa-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let schedulingTimeFrame of schedulingTimeFrames ;trackBy: trackId">
+                <td><a [routerLink]="['../scheduling-time-frame', schedulingTimeFrame.id ]">{{schedulingTimeFrame.id}}</a></td>
+                <td>
+                    <div *ngIf="schedulingTimeFrame.subdepartmentId">
+                        <a [routerLink]="['../subdepartment', schedulingTimeFrame.subdepartmentId ]" >{{schedulingTimeFrame.subdepartmentShortName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="schedulingTimeFrame.userGroupId">
+                        {{schedulingTimeFrame.userGroupName}}
+                    </div>
+                </td>
+                <td>{{schedulingTimeFrame.startTime | date:'medium'}}</td>
+                <td>{{schedulingTimeFrame.endTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="schedulingTimeFrame.semesterId">
+                        <a [routerLink]="['../semester', schedulingTimeFrame.semesterId ]" >{{schedulingTimeFrame.semesterName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../scheduling-time-frame', schedulingTimeFrame.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'scheduling-time-frame/'+ schedulingTimeFrame.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'scheduling-time-frame/'+ schedulingTimeFrame.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="schedulingTimeFrames && schedulingTimeFrames.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

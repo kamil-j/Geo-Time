@@ -1,0 +1,123 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBookingUnitLabel" jhiTranslate="geoTimeApp.bookingUnit.home.createOrEditLabel">Create or edit a Booking Unit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!bookingUnit.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="bookingUnit.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.startTime" for="field_startTime">Start Time</label>
+            <div class="d-flex">
+                <input id="field_startTime" type="time" class="form-control" name="startTime" [(ngModel)]="bookingUnit.startTime"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.startTime?.dirty && editForm.controls.startTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.startTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.startTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.endTime" for="field_endTime">End Time</label>
+            <div class="d-flex">
+                <input id="field_endTime" type="time" class="form-control" name="endTime" [(ngModel)]="bookingUnit.endTime"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.endTime?.dirty && editForm.controls.endTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.endTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.endTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.day" for="field_day">Day</label>
+            <select class="form-control" name="day" [(ngModel)]="bookingUnit.day" id="field_day"  required>
+                <option value="MON">{{'geoTimeApp.DayOfWeek.MON' | translate}}</option>
+                <option value="TUE">{{'geoTimeApp.DayOfWeek.TUE' | translate}}</option>
+                <option value="WED">{{'geoTimeApp.DayOfWeek.WED' | translate}}</option>
+                <option value="THU">{{'geoTimeApp.DayOfWeek.THU' | translate}}</option>
+                <option value="FRI">{{'geoTimeApp.DayOfWeek.FRI' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.day?.dirty && editForm.controls.day?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.day?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.week" for="field_week">Week</label>
+            <select class="form-control" name="week" [(ngModel)]="bookingUnit.week" id="field_week"  required>
+                <option value="A">{{'geoTimeApp.WeekType.A' | translate}}</option>
+                <option value="B">{{'geoTimeApp.WeekType.B' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.week?.dirty && editForm.controls.week?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.week?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.semesterHalf" for="field_semesterHalf">Semester Half</label>
+            <select class="form-control" name="semesterHalf" [(ngModel)]="bookingUnit.semesterHalf" id="field_semesterHalf" >
+                <option value="HALF1">{{'geoTimeApp.SemesterHalf.HALF1' | translate}}</option>
+                <option value="HALF2">{{'geoTimeApp.SemesterHalf.HALF2' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.locked" for="field_locked">Locked</label>
+            <input type="checkbox" class="form-control" name="locked" id="field_locked"
+                [(ngModel)]="bookingUnit.locked" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.classUnit" for="field_classUnit">Class Unit</label>
+            <select class="form-control" id="field_classUnit" name="classUnit" [(ngModel)]="bookingUnit.classUnitId" required>
+                <option [ngValue]="classUnitOption.id" *ngFor="let classUnitOption of classunits; trackBy: trackClassUnitById">{{classUnitOption.title}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.classUnit?.dirty && editForm.controls.classUnit?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.classUnit?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.bookingUnit.room" for="field_room">Room</label>
+            <select class="form-control" id="field_room" name="room" [(ngModel)]="bookingUnit.roomId" required>
+                <option [ngValue]="roomOption.id" *ngFor="let roomOption of rooms; trackBy: trackRoomById">{{roomOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.room?.dirty && editForm.controls.room?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.room?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,42 @@
+{
+    "userManagement": {
+        "home": {
+            "title": "Users",
+            "createLabel": "Create a new user",
+            "createOrEditLabel": "Create or edit a user"
+        },
+        "created": "A new user is created with identifier {{ param }}",
+        "uploaded": "New users have been successfully created",
+        "updated": "An user is updated with identifier {{ param }}",
+        "deleted": "An user is deleted with identifier {{ param }}",
+        "delete": {
+            "question": "Are you sure you want to delete user {{ login }}?"
+        },
+        "detail": {
+            "title": "User"
+        },
+        "login": "Login",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "subdepartment": "Subdepartment",
+        "activated": "Activated",
+        "deactivated": "Deactivated",
+        "profiles": "Profiles",
+        "langKey": "Language",
+        "userGroup": "User Group",
+        "createdBy": "Created by",
+        "createdDate": "Created date",
+        "lastModifiedBy": "Modified by",
+        "lastModifiedDate": "Modified date",
+        "classUnit": "Class Units",
+        "upload": {
+            "title": "Upload a CSV file containing users to create",
+            "choose": "Choose file...",
+            "cancel": "Cancel",
+            "uploadBtn": "Upload",
+            "inProgress": "Uploading in-progress...",
+            "error": "Users data could not be loaded from that file"
+        }
+    }
+}

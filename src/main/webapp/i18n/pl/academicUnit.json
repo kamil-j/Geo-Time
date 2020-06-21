@@ -1,0 +1,27 @@
+
+{
+    "geoTimeApp": {
+        "academicUnit" : {
+            "home": {
+                "title": "Jednostki akademickie",
+                "createLabel": "Dodaj Jednostkę akademicką",
+                "createOrEditLabel": "Dodaj lub edytuj: Jednostkę akademicką"
+            },
+            "created": "Utworzono nową Jednostkę akademicką z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Jednostkę akademicką z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Jednostkę akademicką z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Jednostkę akademicką {{ id }}?"
+            },
+            "detail": {
+                "title": "Jednostka akademicka"
+            },
+            "name": "Nazwa",
+            "year": "Rok",
+            "degree": "Stopień",
+            "description": "Opis",
+            "studyField": "Kierunek studiów",
+            "classUnit": "Zajęcia"
+        }
+    }
+}

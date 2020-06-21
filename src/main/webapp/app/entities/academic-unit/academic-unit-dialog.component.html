@@ -1,0 +1,80 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAcademicUnitLabel" jhiTranslate="geoTimeApp.academicUnit.home.createOrEditLabel">Create or edit a Academic Unit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!academicUnit.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="academicUnit.id" readonly />
+        </div>
+        <div class="form-group" [hidden]="!academicUnit.name">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.academicUnit.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name" [(ngModel)]="academicUnit.name" readonly/>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.academicUnit.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                   [(ngModel)]="academicUnit.description" maxlength="50"/>
+            <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.description?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                    This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.academicUnit.studyField" for="field_studyField">Study Field</label>
+            <select class="form-control" id="field_studyField" name="studyField" [(ngModel)]="academicUnit.studyFieldId"  required>
+                <option [ngValue]="studyFieldOption.id" *ngFor="let studyFieldOption of studyfields; trackBy: trackStudyFieldById">{{studyFieldOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.studyField?.dirty && editForm.controls.studyField?.invalid)">
+            <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.studyField?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.academicUnit.degree" for="field_degree">Degree</label>
+            <select class="form-control" name="degree" [(ngModel)]="academicUnit.degree" id="field_degree"  required>
+                <option value="DEGREE1">{{'geoTimeApp.AcademicUnitDegree.DEGREE1' | translate}}</option>
+                <option value="DEGREE2">{{'geoTimeApp.AcademicUnitDegree.DEGREE2' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.degree?.dirty && editForm.controls.degree?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.degree?.errors?.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="geoTimeApp.academicUnit.year" for="field_year">Year</label>
+            <select class="form-control" name="year" [(ngModel)]="academicUnit.year" id="field_year"  required>
+                <option value="YEAR1">{{'geoTimeApp.AcademicUnitYear.YEAR1' | translate}}</option>
+                <option value="YEAR2">{{'geoTimeApp.AcademicUnitYear.YEAR2' | translate}}</option>
+                <option value="YEAR3">{{'geoTimeApp.AcademicUnitYear.YEAR3' | translate}}</option>
+                <option value="YEAR4">{{'geoTimeApp.AcademicUnitYear.YEAR4' | translate}}</option>
+                <option value="YEAR5">{{'geoTimeApp.AcademicUnitYear.YEAR5' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.year?.dirty && editForm.controls.year?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.year?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

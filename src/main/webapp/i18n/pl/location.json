@@ -1,0 +1,25 @@
+
+{
+    "geoTimeApp": {
+        "location" : {
+            "home": {
+                "title": "Lokalizacje",
+                "createLabel": "Dodaj Lokalizację",
+                "createOrEditLabel": "Dodaj lub edytuj: Lokalizację"
+            },
+            "created": "Utworzono nową Lokalizację z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Lokalizację z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Lokalizację z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Lokalizację {{ id }}?"
+            },
+            "detail": {
+                "title": "Lokalizacja"
+            },
+            "name": "Nazwa",
+            "description": "Opis",
+            "department": "Wydział",
+            "room": "Sale"
+        }
+    }
+}

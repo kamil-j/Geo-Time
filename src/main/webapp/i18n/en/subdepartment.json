@@ -1,0 +1,24 @@
+
+{
+    "geoTimeApp": {
+        "subdepartment" : {
+            "home": {
+                "title": "Subdepartments",
+                "createLabel": "Create a new Subdepartment",
+                "createOrEditLabel": "Create or edit a Subdepartment"
+            },
+            "created": "A new Subdepartment is created with identifier {{ param }}",
+            "updated": "A Subdepartment is updated with identifier {{ param }}",
+            "deleted": "A Subdepartment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Subdepartment {{ id }}?"
+            },
+            "detail": {
+                "title": "Subdepartment"
+            },
+            "name": "Name",
+            "shortName": "Short Name",
+            "userExt": "User Ext"
+        }
+    }
+}

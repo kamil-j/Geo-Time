@@ -1,0 +1,155 @@
+id;title;description;duration;hours_quantity;frequency;academic_unit_group;only_semester_half;class_type_id;user_ext_id;semester_id;academic_unit_id;class_unit_group_id;subdepartment_id
+1;Programowanie proceduralne;null;135;45;EVERY_WEEK;GROUP1;false;2;6;2;19;null;2
+2;Programowanie proceduralne;null;135;45;EVERY_WEEK;GROUP2;false;2;6;2;19;null;2
+3;Rachunek prawdopodobieństwa i statystyka matematyczna;null;90;30;EVERY_WEEK;null;false;1;7;2;19;null;2
+4;Rachunek prawdopodobieństwa i statystyka matematyczna;null;90;30;EVERY_WEEK;GROUP1;false;4;7;2;19;null;2
+5;Rachunek prawdopodobieństwa i statystyka matematyczna;null;90;30;EVERY_WEEK;GROUP2;false;4;7;2;19;null;2
+6;Wstęp do geomatyki;null;90;30;EVERY_WEEK;null;false;1;8;2;19;null;2
+7;Wstęp do geomatyki;null;90;15;EVERY_TWO_WEEKS;GROUP1;false;4;9;2;19;null;2
+8;Wstęp do geomatyki;null;90;15;EVERY_TWO_WEEKS;GROUP2;false;4;9;2;19;null;2
+9;Zastosowanie informatyki w geologii;null;90;15;EVERY_TWO_WEEKS;null;false;1;10;2;25;null;2
+10;Algorytmy i struktury danych;null;90;30;EVERY_WEEK;null;false;1;11;2;1;null;2
+11;Algorytmy i struktury danych;null;90;15;EVERY_TWO_WEEKS;GROUP1;false;4;11;2;1;null;2
+12;Algorytmy i struktury danych;null;90;15;EVERY_TWO_WEEKS;GROUP2;false;4;11;2;1;null;2
+13;Algorytmy i struktury danych;null;90;15;EVERY_TWO_WEEKS;GROUP3;false;4;11;2;1;null;2
+14;System UNIX;null;90;15;EVERY_TWO_WEEKS;null;false;1;12;2;1;null;2
+15;System UNIX;null;90;30;EVERY_WEEK;GROUP1;false;4;12;2;1;1;2
+16;System UNIX;null;90;30;EVERY_WEEK;GROUP2;false;4;12;2;1;2;2
+17;System UNIX;null;90;30;EVERY_WEEK;GROUP3;false;4;12;2;1;3;2
+18;System UNIX;null;90;30;EVERY_WEEK;GROUP1;false;4;13;2;1;1;2
+19;System UNIX;null;90;30;EVERY_WEEK;GROUP2;false;4;13;2;1;2;2
+20;System UNIX;null;90;30;EVERY_WEEK;GROUP3;false;4;13;2;1;3;2
+21;Techniki internetowe;null;90;15;EVERY_TWO_WEEKS;null;false;1;14;2;1;null;2
+22;Techniki internetowe;null;90;30;EVERY_WEEK;GROUP1;false;4;14;2;1;null;2
+23;Techniki internetowe;null;90;30;EVERY_WEEK;GROUP2;false;4;14;2;1;null;2
+24;Techniki internetowe;null;90;30;EVERY_WEEK;GROUP3;false;4;14;2;1;null;2
+25;Komputerowa grafika inżynierska;null;90;15;EVERY_TWO_WEEKS;null;false;1;15;2;31;null;2
+26;Komputerowa grafika inżynierska;null;90;30;EVERY_WEEK;GROUP1;false;4;16;2;31;null;2
+27;Komputerowa grafika inżynierska;null;90;30;EVERY_WEEK;GROUP2;false;4;16;2;31;null;2
+28;Komputerowa grafika inżynierska;null;90;30;EVERY_WEEK;GROUP3;false;4;16;2;31;null;2
+29;Elektronika cyfrowa i architektura komputerów;null;90;30;EVERY_WEEK;null;false;1;13;2;2;null;2
+30;Elektronika cyfrowa i architektura komputerów;null;90;30;EVERY_WEEK;GROUP1;false;2;17;2;2;null;2
+31;Elektronika cyfrowa i architektura komputerów;null;90;30;EVERY_WEEK;GROUP2;false;2;17;2;2;null;2
+32;Elektronika cyfrowa i architektura komputerów;null;90;30;EVERY_WEEK;GROUP3;false;2;17;2;2;null;2
+33;Elektronika cyfrowa i architektura komputerów;null;90;30;EVERY_WEEK;GROUP4;false;2;17;2;2;null;2
+34;Metody numeryczne;null;90;30;EVERY_WEEK;null;false;1;8;2;2;null;2
+35;Metody numeryczne;null;90;30;EVERY_WEEK;GROUP1;false;4;18;2;2;null;2
+36;Metody numeryczne;null;90;30;EVERY_WEEK;GROUP2;false;4;18;2;2;null;2
+37;Programowanie obiektowe;null;90;15;EVERY_TWO_WEEKS;null;false;1;12;2;2;null;2
+38;Programowanie obiektowe;null;135;45;EVERY_WEEK;GROUP1;false;2;19;2;2;null;2
+39;Programowanie obiektowe;null;135;45;EVERY_WEEK;GROUP2;false;2;19;2;2;null;2
+40;Sieci komputerowe;null;90;30;EVERY_WEEK;null;false;1;10;2;2;null;2
+41;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP1;false;2;13;2;2;4;2
+42;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP2;false;2;13;2;2;5;2
+43;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP3;false;2;13;2;2;6;2
+44;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP4;false;2;13;2;2;7;2
+45;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP1;false;2;12;2;2;4;2
+46;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP2;false;2;12;2;2;5;2
+47;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP3;false;2;12;2;2;6;2
+48;Sieci komputerowe;null;90;30;EVERY_WEEK;GROUP4;false;2;12;2;2;7;2
+49;Analiza i przetwarzanie obrazów cyfrowych;null;90;30;EVERY_WEEK;null;false;1;10;2;3;null;2
+50;Analiza i przetwarzanie obrazów cyfrowych;null;135;45;EVERY_WEEK;GROUP1;false;4;20;2;3;null;2
+51;Analiza i przetwarzanie obrazów cyfrowych;null;135;45;EVERY_WEEK;GROUP2;false;4;20;2;3;null;2
+52;Programowanie obiektowe w środowisku Windows;null;90;15;EVERY_TWO_WEEKS;null;false;1;21;2;3;null;2
+53;Programowanie obiektowe w środowisku Windows;null;135;45;EVERY_WEEK;GROUP1;false;4;21;2;3;null;2
+54;Programowanie obiektowe w środowisku Windows;null;135;45;EVERY_WEEK;GROUP2;false;4;21;2;3;null;2
+55;Sztuczna inteligencja i systemy ekspertowe;null;135;45;EVERY_WEEK;null;false;1;22;2;3;null;2
+56;Sztuczna inteligencja i systemy ekspertowe;null;90;30;EVERY_WEEK;GROUP1;false;4;22;2;3;null;2
+57;Sztuczna inteligencja i systemy ekspertowe;null;90;30;EVERY_WEEK;GROUP2;false;4;22;2;3;null;2
+58;Podstawy programowania aplikacji korporacyjnych;null;90;15;EVERY_TWO_WEEKS;null;false;1;6;2;3;null;2
+59;Podstawy programowania aplikacji korporacyjnych;null;135;45;EVERY_WEEK;GROUP1;false;4;6;2;3;null;2
+60;Podstawy programowania aplikacji korporacyjnych;null;135;45;EVERY_WEEK;GROUP2;false;4;6;2;3;null;2
+61;Systemy informatyczne;null;90;15;EVERY_WEEK;null;false;1;23;2;3;null;2
+62;Systemy informatyczne;null;90;30;EVERY_WEEK;GROUP1;false;4;6;2;3;null;2
+63;Systemy informatyczne;null;90;30;EVERY_WEEK;GROUP2;false;4;6;2;3;null;2
+64;Administracja Systemami Komputerowymi;null;90;15;EVERY_TWO_WEEKS;null;false;1;24;2;3;null;2
+65;Administracja Systemami Komputerowymi;null;90;30;EVERY_WEEK;GROUP1;false;2;24;2;3;null;2
+66;Administracja Systemami Komputerowymi;null;90;30;EVERY_WEEK;GROUP2;false;2;24;2;3;null;2
+67;Przestrzenne bazy danych;null;90;15;EVERY_TWO_WEEKS;null;false;1;25;2;33;null;2
+68;Przestrzenne bazy danych;null;90;30;EVERY_WEEK;GROUP1;false;4;25;2;33;null;2
+69;Komputerowa grafika inżynierska 3D (CAD);null;90;15;EVERY_TWO_WEEKS;null;false;1;15;2;39;null;2
+70;Komputerowa grafika inżynierska 3D (CAD);null;135;45;EVERY_WEEK;GROUP1;false;4;16;2;39;null;2
+71;Środowiskowe bazy danych;null;90;15;EVERY_TWO_WEEKS;null;false;1;25;2;39;null;2
+72;Środowiskowe bazy danych;null;135;45;EVERY_WEEK;GROUP1;false;2;26;2;39;null;2
+73;Środowiskowe bazy danych;null;135;45;EVERY_WEEK;GROUP2;false;2;26;2;39;null;2
+74;Aktualne Problemy Informatyki Stosowanej II;null;90;30;EVERY_WEEK;GROUP1;false;3;27;2;6;8;2
+75;Aktualne Problemy Informatyki Stosowanej II;null;90;30;EVERY_WEEK;GROUP1;false;3;21;2;6;8;2
+76;Aktualne Problemy Informatyki Stosowanej II;null;90;15;EVERY_TWO_WEEKS;GROUP1;false;3;10;2;6;null;2
+77;Aktualne Problemy Informatyki Stosowanej II;null;90;30;EVERY_WEEK;GROUP1;false;3;23;2;6;null;2
+78;Informatyczne projekty zespołowe;null;135;45;EVERY_WEEK;GROUP1;false;4;26;2;6;null;2
+79;Seminarium dyplomowe;null;90;30;EVERY_WEEK;GROUP1;false;3;8;2;6;null;2
+80;Systemy informatyczne w EZE;null;135;60;EVERY_WEEK;null;false;1;28;2;11;null;2
+81;Systemy informatyczne w EZE;null;135;60;EVERY_WEEK;null;false;2;28;2;11;null;2
+82;Systemy informatyczne w OZE;null;90;30;EVERY_WEEK;null;false;1;28;2;35;null;2
+83;Języki formalne i automaty;null;90;7;EVERY_TWO_WEEKS;null;false;1;5;2;5;null;2
+84;Języki formalne i automaty;null;90;15;EVERY_TWO_WEEKS;null;false;4;12;2;5;null;2
+85;Modelowanie procesów fizycznych;null;90;15;EVERY_TWO_WEEKS;null;false;1;24;2;5;null;2
+86;Modelowanie procesów fizycznych;null;135;45;EVERY_WEEK;null;false;4;24;2;5;null;2
+87;Eksploracja danych;null;90;30;EVERY_WEEK;null;false;1;28;2;5;null;2
+88;Eksploracja danych;null;90;30;EVERY_WEEK;null;false;4;28;2;5;null;2
+89;Aktualne problemy informatyki stosowanej;null;90;30;EVERY_WEEK;null;false;3;11;2;5;null;2
+90;Aktualne problemy informatyki stosowanej;null;90;15;EVERY_TWO_WEEKS;null;false;3;10;2;5;null;2
+91;Aktualne problemy informatyki stosowanej;null;90;15;EVERY_TWO_WEEKS;null;false;3;19;2;5;null;2
+92;Aktualne problemy informatyki stosowanej;null;90;30;EVERY_WEEK;null;false;3;23;2;5;null;2
+93;Systemy równoległe i rozproszone;null;90;30;EVERY_WEEK;null;false;1;24;2;5;null;2
+94;Systemy równoległe i rozproszone;null;90;30;EVERY_WEEK;null;false;4;24;2;5;null;2
+95;Bazy danych II;null;90;6;EVERY_TWO_WEEKS;null;false;1;5;2;5;null;2
+96;Bazy danych II;null;135;45;EVERY_WEEK;null;false;4;5;2;5;null;2
+97;Metody numeryczne w geologii inżynierskiej;null;90;30;EVERY_WEEK;null;false;1;21;2;29;null;2
+98;Metody numeryczne w geologii inżynierskiej;null;90;30;EVERY_WEEK;GROUP1;false;2;20;2;29;null;2
+99;Metody numeryczne w geologii inżynierskiej;null;90;30;EVERY_WEEK;GROUP2;false;2;20;2;29;null;2
+100;Mineralogia i petrografia;null;90;30;EVERY_WEEK;null;false;1;30;2;13;null;3
+101;Mineralogia i petrografia;null;90;15;EVERY_TWO_WEEKS;GROUP1;false;2;31;2;13;null;3
+102;Mineralogia i petrografia;null;90;15;EVERY_TWO_WEEKS;GROUP2;false;2;31;2;13;null;3
+103;Mineralogia i petrografia;null;90;30;EVERY_WEEK;null;false;1;30;2;37;null;3
+104;Mineralogia i petrografia;null;90;30;EVERY_WEEK;GROUP1;false;2;32;2;37;null;3
+105;Petrografia;null;90;30;EVERY_WEEK;GROUP1;false;1;33;2;26;null;3
+106;Petrografia;null;90;30;EVERY_WEEK;GROUP2;false;1;33;2;26;null;3
+107;Petrografia;null;90;30;EVERY_WEEK;GROUP1;false;4;34;2;26;null;3
+108;Petrografia;null;90;30;EVERY_WEEK;GROUP2;false;4;34;2;26;null;3
+109;Petrografia;null;90;30;EVERY_WEEK;GROUP3;false;4;35;2;26;null;3
+110;Petrografia;null;90;30;EVERY_WEEK;GROUP4;false;4;36;2;26;null;3
+111;Petrografia;null;45;15;EVERY_WEEK;GROUP1;false;2;34;2;26;null;3
+112;Petrografia;null;45;15;EVERY_WEEK;GROUP2;false;2;34;2;26;null;3
+113;Petrografia;null;45;15;EVERY_WEEK;GROUP3;false;2;34;2;26;null;3
+114;Petrografia;null;45;15;EVERY_WEEK;GROUP4;false;2;34;2;26;null;3
+115;Petrografia;null;45;15;EVERY_WEEK;GROUP5;false;2;35;2;26;null;3
+116;Petrografia;null;45;15;EVERY_WEEK;GROUP6;false;2;35;2;26;null;3
+117;Petrografia;null;45;15;EVERY_WEEK;GROUP7;false;2;36;2;26;null;3
+118;Petrografia;null;45;15;EVERY_WEEK;GROUP8;false;2;36;2;26;null;3
+119;Chemia środowiska;null;90;30;EVERY_WEEK;null;false;1;37;2;32;null;3
+120;Chemia środowiska;null;90;30;EVERY_WEEK;GROUP1;false;2;38;2;32;null;3
+121;Chemia środowiska;null;90;30;EVERY_WEEK;GROUP2;false;2;38;2;32;null;3
+122;Chemia środowiska;null;90;30;EVERY_WEEK;GROUP3;false;2;39;2;32;null;3
+123;Chemia środowiska;null;90;30;EVERY_WEEK;GROUP4;false;2;39;2;32;null;3
+124;Geochemia;null;90;30;EVERY_WEEK;null;false;1;38;2;38;null;3
+125;Geochemia;null;90;15;EVERY_TWO_WEEKS;null;false;4;40;2;38;null;3
+126;Pierwiastki krytyczne i surowce II generacji Polski i świata;null;180;45;EVERY_WEEK;null;false;1;41;2;30;null;3
+127;Seminarium dyplomowe;null;135;30;EVERY_WEEK;null;false;3;30;2;30;null;3
+128;Seminarium dyplomowe;null;135;30;EVERY_WEEK;null;false;3;37;2;42;null;3
+129;Krystalografia i krystalochemia;null;225;60;EVERY_WEEK;null;false;4;42;2;29;null;3
+130;Mineralogia zaawansowana;null;90;30;EVERY_WEEK;null;false;1;41;2;29;null;3
+131;Mineralogia zaawansowana;null;135;45;EVERY_WEEK;GROUP1;false;2;30;2;29;9;3
+132;Mineralogia zaawansowana;null;135;45;EVERY_WEEK;GROUP1;false;2;33;2;29;9;3
+133;Mineralogia zaawansowana;null;135;45;EVERY_WEEK;GROUP2;false;2;30;2;29;10;3
+134;Mineralogia zaawansowana;null;135;45;EVERY_WEEK;GROUP2;false;2;33;2;29;10;3
+135;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;null;false;1;33;2;29;11;3
+136;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;null;false;1;43;2;29;11;3
+137;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;GROUP1;false;2;33;2;29;12;3
+138;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;GROUP1;false;2;43;2;29;12;3
+139;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;GROUP2;false;2;33;2;29;13;3
+140;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;GROUP2;false;2;43;2;29;13;3
+141;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;null;false;4;33;2;29;14;3
+142;Petrologia skał magmowych i metamorficznych;null;90;30;EVERY_WEEK;null;false;4;43;2;29;14;3
+143;Jubilerstwo i wycena kamieni;null;90;30;EVERY_WEEK;null;false;1;34;2;29;null;3
+144;Jubilerstwo i wycena kamieni;null;180;45;EVERY_WEEK;GROUP1;false;2;44;2;29;15;3
+145;Jubilerstwo i wycena kamieni;null;180;45;EVERY_WEEK;GROUP1;false;2;32;2;29;15;3
+146;Jubilerstwo i wycena kamieni;null;180;45;EVERY_WEEK;GROUP1;false;2;45;2;29;15;3
+147;Jubilerstwo i wycena kamieni;null;180;45;EVERY_WEEK;GROUP2;false;2;44;2;29;16;3
+148;Jubilerstwo i wycena kamieni;null;180;45;EVERY_WEEK;GROUP2;false;2;32;2;29;16;3
+149;Jubilerstwo i wycena kamieni;null;180;45;EVERY_WEEK;GROUP2;false;2;45;2;29;16;3
+150;Geochemia pierwiastków i paragenez mineralnych;null;225;60;EVERY_WEEK;null;false;4;46;2;29;17;3
+151;Geochemia pierwiastków i paragenez mineralnych;null;225;60;EVERY_WEEK;null;false;4;47;2;29;17;3
+152;Geochemia pierwiastków i paragenez mineralnych;null;225;60;EVERY_WEEK;null;false;4;48;2;29;17;3
+153;Fizykochemia odpadów stałych;null;90;15;EVERY_TWO_WEEKS;null;false;1;35;2;35;null;3
+154;Fizykochemia odpadów stałych;null;90;30;EVERY_WEEK;null;false;4;49;2;35;null;3

@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="semester">
+            <h2><span jhiTranslate="geoTimeApp.semester.detail.title">Semester</span> {{semester.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.semester.name">Name</span></dt>
+                <dd>
+                    <span>{{semester.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.semester.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{semester.startDate | date:'medium'}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.semester.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{semester.endDate | date:'medium'}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.semester.active">Active</span></dt>
+                <dd>
+                    <span>{{semester.active}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="button"
+                    [routerLink]="['/', { outlets: { popup: 'semester/'+ semester.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

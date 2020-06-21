@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "classUnit",
+            "otherEntityName": "classUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "semester"
+        },
+        {
+            "relationshipName": "schedulingTimeFrame",
+            "otherEntityName": "schedulingTimeFrame",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "semester"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20180618153837",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "semesters",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classUnit">
+            <h2><span jhiTranslate="geoTimeApp.classUnit.detail.title">Class Unit</span> {{classUnit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.classUnit.title">Title</span></dt>
+                <dd>
+                    <span>{{classUnit.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.description">Description</span></dt>
+                <dd>
+                    <span>{{classUnit.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.classType">Class Type</span></dt>
+                <dd>
+                    <div *ngIf="classUnit.classTypeId">
+                        <a [routerLink]="['/class-type', classUnit.classTypeId]">{{classUnit.classTypeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.duration">Duration</span></dt>
+                <dd>
+                    <span>{{classUnit.duration}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.hoursQuantity">Hours Quantity</span></dt>
+                <dd>
+                    <span>{{classUnit.hoursQuantity}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.frequency">Frequency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'geoTimeApp.ClassFrequency.' + classUnit.frequency}}">{{classUnit.frequency}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.academicUnit">Academic Unit</span></dt>
+                <dd>
+                    <div *ngIf="classUnit.academicUnitId">
+                        <a [routerLink]="['/academic-unit', classUnit.academicUnitId]">{{classUnit.academicUnitName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.academicUnitGroup">Academic Unit Group</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'geoTimeApp.AcademicUnitGroup.' + classUnit.academicUnitGroup}}">{{classUnit.academicUnitGroup}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.room">Room</span></dt>
+                <dd>
+                    <ul class="list-unstyled">
+                        <li *ngFor="let room of classUnit.rooms">
+                            <a class="badge badge-info" [routerLink]="['/room', room?.id ]">{{room.name}}</a>
+                        </li>
+                    </ul>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.subdepartment">Subdepartment</span></dt>
+                <dd>
+                    <div *ngIf="classUnit.subdepartmentId">
+                        <a [routerLink]="['/subdepartment', classUnit.subdepartmentId]">{{classUnit.subdepartmentShortName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.user">User</span></dt>
+                <dd>
+                    <div *ngIf="classUnit.userId">
+                        <a [routerLink]="['/user-management', classUnit.userLogin]">{{classUnit.userLogin}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.classUnitGroup">Class Unit Group</span></dt>
+                <dd>
+                    <div *ngIf="classUnit.classUnitGroupId">
+                        <a [routerLink]="['/class-unit-group', classUnit.classUnitGroupId]">{{classUnit.classUnitGroupName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnit.semester">Semester</span></dt>
+                <dd>
+                    <div *ngIf="classUnit.semesterId">
+                        <a [routerLink]="['/semester', classUnit.semesterId]">{{classUnit.semesterName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button *jhiHasAnyAuthority="'ROLE_MANAGER'" type="button"
+                    [routerLink]="['/', { outlets: { popup: 'class-unit/'+ classUnit.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

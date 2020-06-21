@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "subdepartment",
+            "otherEntityName": "subdepartment",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "department"
+        },
+        {
+            "relationshipName": "studyField",
+            "otherEntityName": "studyField",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "department"
+        },
+        {
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "department"
+        },
+        {
+            "relationshipName": "classUnitGroup",
+            "otherEntityName": "classUnitGroup",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "department"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "shortName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "functional",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180417154101",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "departments",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

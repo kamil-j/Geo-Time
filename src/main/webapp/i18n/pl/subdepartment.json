@@ -1,0 +1,24 @@
+
+{
+    "geoTimeApp": {
+        "subdepartment" : {
+            "home": {
+                "title": "Katedry",
+                "createLabel": "Dodaj Katedrę",
+                "createOrEditLabel": "Dodaj lub edytuj: Katedrę"
+            },
+            "created": "Utworzono nową Katedrę z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Katedrę z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Katedrę z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Katedrę {{ id }}?"
+            },
+            "detail": {
+                "title": "Katedra"
+            },
+            "name": "Nazwa",
+            "shortName": "Skrócona nazwa",
+            "userExt": "Użytkownicy"
+        }
+    }
+}

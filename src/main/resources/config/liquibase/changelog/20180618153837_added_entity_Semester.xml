@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Semester.
+    -->
+    <changeSet id="20180618153837-1" author="jhipster">
+        <createTable tableName="semesters">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="start_date" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="end_date" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="active" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="semesters" columnName="start_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="semesters" columnName="end_date" columnDataType="datetime"/>
+
+        <sql dbms="postgresql">CREATE UNIQUE INDEX uq_ix_semesters_active on semesters (active) WHERE active = true</sql>
+    </changeSet>
+
+    <changeSet id="20180618153837-2" author="jhipster" context="dev">
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/devDataload/semesters.csv"
+                  separator=";"
+                  tableName="semesters"/>
+    </changeSet>
+
+    <changeSet id="20180618153837-3" author="jhipster" context="prod">
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/prodDataload/semesters.csv"
+                  separator=";"
+                  tableName="semesters"/>
+    </changeSet>
+
+    <changeSet id="20180618153837-4" author="jhipster" context="test">
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/testDataload/semesters.csv"
+                  separator=";"
+                  tableName="semesters"/>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

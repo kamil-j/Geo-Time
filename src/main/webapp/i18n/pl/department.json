@@ -1,0 +1,28 @@
+
+{
+    "geoTimeApp": {
+        "department" : {
+            "home": {
+                "title": "Wydziały",
+                "createLabel": "Dodaj Wydział",
+                "createOrEditLabel": "Dodaj lub edytuj: Wydział"
+            },
+            "created": "Utworzono nowy Wydział z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Wydział z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Wydział z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Wydział {{ id }}?"
+            },
+            "detail": {
+                "title": "Wydział"
+            },
+            "name": "Nazwa",
+            "shortName": "Skrócona nazwa",
+            "functional": "Funkcyjny",
+            "subdepartment": "Katedry",
+            "studyField": "Kierunki studiów",
+            "location": "Lokalizacje",
+            "classUnitGroup": "Grupa zajęć"
+        }
+    }
+}

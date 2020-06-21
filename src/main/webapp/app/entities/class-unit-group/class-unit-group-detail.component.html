@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classUnitGroup">
+            <h2><span jhiTranslate="geoTimeApp.classUnitGroup.detail.title">Class Unit Group</span> {{classUnitGroup.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.classUnitGroup.name">Name</span></dt>
+                <dd>
+                    <span>{{classUnitGroup.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.classUnitGroup.description">Description</span></dt>
+                <dd>
+                    <span>{{classUnitGroup.description}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'class-unit-group/'+ classUnitGroup.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

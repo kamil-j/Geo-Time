@@ -1,0 +1,30 @@
+
+{
+    "geoTimeApp": {
+        "bookingUnit" : {
+            "home": {
+                "title": "Rezerwacje",
+                "createLabel": "Dodaj Rezerwacje",
+                "createOrEditLabel": "Dodaj lub edytuj: Rezerwacje"
+            },
+            "created": "Utworzono nową Rezerwacje z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Rezerwacje z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Rezerwacje z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Rezerwacje {{ id }}?"
+            },
+            "detail": {
+                "title": "Rezerwacja"
+            },
+            "startTime": "Czas rozpoczęcia",
+            "endTime": "Czas zakończenia",
+            "day": "Dzień",
+            "week": "Tydzień",
+            "semesterHalf": "Połowa semestru",
+            "locked": "Zablokowana",
+            "classUnit": "Zajęcia",
+            "room": "Sala",
+            "filter": "Filtruj"
+        }
+    }
+}

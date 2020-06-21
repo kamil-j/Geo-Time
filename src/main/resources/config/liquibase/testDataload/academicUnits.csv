@@ -1,0 +1,12 @@
+id;name;year;degree;description;study_field_id
+1;InfSts-1D-1Y;YEAR1;DEGREE1;null;1
+2;InfSts-1D-2Y;YEAR2;DEGREE1;null;1
+3;InfSts-1D-3Y;YEAR3;DEGREE1;null;1
+4;InfSts-1D-4Y;YEAR4;DEGREE1;null;1
+5;InfSts-2D-1Y;YEAR1;DEGREE2;null;1
+6;InfSts-2D-2Y;YEAR2;DEGREE2;null;1
+7;Ft-1D-1Y;YEAR1;DEGREE1;null;5
+8;Ft-1D-2Y;YEAR2;DEGREE1;null;5
+9;Ft-1D-3Y;YEAR3;DEGREE1;null;5
+10;Ft-1D-4Y;YEAR4;DEGREE1;null;5
+11;Ft-1D-5Y;YEAR5;DEGREE1;null;5

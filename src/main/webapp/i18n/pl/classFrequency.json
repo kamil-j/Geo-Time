@@ -1,0 +1,12 @@
+{
+    "geoTimeApp": {
+        "ClassFrequency" : {
+            "null": "",
+            "SINGLE": "Jednorazowe",
+            "EVERY_DAY": "Codziennie",
+            "EVERY_WEEK": "Co tydzień",
+            "EVERY_TWO_WEEKS": "Co dwa tygodnie",
+            "EVERY_MONTH": "Co miesiąc"
+        }
+    }
+}

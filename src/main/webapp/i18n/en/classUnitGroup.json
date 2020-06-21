@@ -1,0 +1,25 @@
+
+{
+    "geoTimeApp": {
+        "classUnitGroup" : {
+            "home": {
+                "title": "Classes Groups",
+                "createLabel": "Create a new Class Unit Group",
+                "createOrEditLabel": "Create or edit a Class Unit Group"
+            },
+            "created": "A new Class Unit Group is created with identifier {{ param }}",
+            "updated": "A Class Unit Group is updated with identifier {{ param }}",
+            "deleted": "A Class Unit Group is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Class Unit Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Class Unit Group"
+            },
+            "name": "Name",
+            "description": "Description",
+            "classUnit": "Class Unit",
+            "department": "Department"
+        }
+    }
+}

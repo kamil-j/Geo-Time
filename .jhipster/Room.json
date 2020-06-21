@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "roomType",
+            "otherEntityName": "roomType",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "classUnit",
+            "otherEntityName": "classUnit",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "room"
+        },
+        {
+            "relationshipName": "bookingUnit",
+            "otherEntityName": "bookingUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "room"
+        },
+        {
+            "relationshipName": "scheduleUnit",
+            "otherEntityName": "scheduleUnit",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "room"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "capacity",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": "0"
+        }
+    ],
+    "changelogDate": "20180416082409",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "rooms",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

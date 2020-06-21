@@ -1,0 +1,27 @@
+
+{
+    "geoTimeApp": {
+        "academicUnit" : {
+            "home": {
+                "title": "Academic Units",
+                "createLabel": "Create a new Academic Unit",
+                "createOrEditLabel": "Create or edit a Academic Unit"
+            },
+            "created": "A new Academic Unit is created with identifier {{ param }}",
+            "updated": "A Academic Unit is updated with identifier {{ param }}",
+            "deleted": "A Academic Unit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Academic Unit {{ id }}?"
+            },
+            "detail": {
+                "title": "Academic Unit"
+            },
+            "name": "Name",
+            "year": "Year",
+            "degree": "Degree",
+            "description": "Description",
+            "studyField": "Study Field",
+            "classUnit": "Class Unit"
+        }
+    }
+}

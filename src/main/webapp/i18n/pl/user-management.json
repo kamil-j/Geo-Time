@@ -1,0 +1,42 @@
+{
+    "userManagement": {
+        "home": {
+            "title": "Użytkownicy",
+            "createLabel": "Stwórz nowego użytkownika",
+            "createOrEditLabel": "Stwórz lub edytuj użytkownika"
+        },
+        "created": "Utworzono nowego użytkownika z identyfikatorem {{ param }}",
+        "uploaded": "Pomyślnie utworzono nowych użytkowników",
+        "updated": "Uaktualniono użytkownika z identyfikatorem {{ param }}",
+        "deleted": "Usunięto użytkownika z identyfikatorem {{ param }}",
+        "delete": {
+            "question": "Czy na pewno chcesz usunąć użytkownika {{ login }}?"
+        },
+        "detail": {
+            "title": "Użytkownik"
+        },
+        "login": "Login",
+        "firstName": "Imię",
+        "lastName": "Nazwisko",
+        "email": "Email",
+        "subdepartment": "Katedra",
+        "activated": "Aktywny",
+        "deactivated": "Nieaktywny",
+        "profiles": "Profile",
+        "langKey": "Język",
+        "userGroup": "Grupa",
+        "createdBy": "Utworzony przez",
+        "createdDate": "Data utworzenia",
+        "lastModifiedBy": "Zmodyfikowany przez",
+        "lastModifiedDate": "Data modyfikacji",
+        "classUnit": "Zajęcia",
+        "upload": {
+            "title": "Załaduj plik CSV zawierający użytkowników do utworzenia",
+            "choose": "Wybierz plik...",
+            "cancel": "Anuluj",
+            "uploadBtn": "Załaduj",
+            "inProgress": "Trwa ładowanie użytkowników...",
+            "error": "Nie udało się załadować danych użytkowników"
+        }
+    }
+}

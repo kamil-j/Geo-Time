@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subdepartment">
+            <h2><span jhiTranslate="geoTimeApp.subdepartment.detail.title">Subdepartment</span> {{subdepartment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="geoTimeApp.subdepartment.name">Name</span></dt>
+                <dd>
+                    <span>{{subdepartment.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="geoTimeApp.subdepartment.shortName">Short Name</span></dt>
+                <dd>
+                    <span>{{subdepartment.shortName}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'subdepartment/'+ subdepartment.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

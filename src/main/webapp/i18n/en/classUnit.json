@@ -1,0 +1,62 @@
+{
+    "geoTimeApp": {
+        "classUnit" : {
+            "home": {
+                "title": "Class Units",
+                "createLabel": "Create a new Class Unit",
+                "createOrEditLabel": "Create or edit a Class Unit"
+            },
+            "created": "A new Class Unit is created with identifier {{ param }}",
+            "updated": "A Class Unit is updated with identifier {{ param }}",
+            "uploaded": "New class units have been successfully created",
+            "deleted": "A Class Unit is deleted with identifier {{ param }}",
+            "create": {
+                "title": "New classes",
+                "step1Title": "Basic information",
+                "step2Title": "Field of study and group",
+                "step3Title": "Lecturer and rooms",
+                "step4Title": "Group of classes",
+                "noClassUnitGroup": "Does not belong to any of the group of classes",
+                "newClassUnitGroup": "Create a new group of classes",
+                "existingClassUnitGroup": "Add to the existing group of classes"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Class Unit {{ id }}?"
+            },
+            "detail": {
+                "title": "Class Unit"
+            },
+            "assignToSubdepartment": "Assign classes to the subdepartment",
+            "assignToUser": "Assign classes directly to the lecturer",
+            "title": "Title",
+            "description": "Description",
+            "duration": "Duration (min)",
+            "hoursQuantity": "Hours Quantity",
+            "frequency": "Frequency",
+            "academicUnitGroup": "Group",
+            "classType": "Type",
+            "user": "Lecturer",
+            "room": "Rooms",
+            "bookingUnit": "Booking Unit",
+            "scheduleUnit": "Schedule Unit",
+            "semester": "Semester",
+            "academicUnit": "Academic Unit",
+            "classUnitGroup": "Class Unit Group",
+            "classUnitGroupName": "Class unit group name",
+            "subdepartment": "Subdepartment",
+            "filter": "Filter",
+            "assign": {
+                "button": "Assign",
+                "title": "Assign lecturer"
+            },
+            "upload": {
+                "title": "Upload a file containing class units to create",
+                "choose": "Choose file...",
+                "cancel": "Cancel",
+                "uploadBtn": "Upload",
+                "inProgress": "Uploading in-progress...",
+                "error": "Class units data could not be loaded from that file"
+            }
+        }
+    }
+}

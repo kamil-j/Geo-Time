@@ -1,0 +1,12 @@
+{
+    "geoTimeApp": {
+        "AcademicUnitYear" : {
+            "null": "",
+            "YEAR1": "1 Rok",
+            "YEAR2": "2 Rok",
+            "YEAR3": "3 Rok",
+            "YEAR4": "4 Rok",
+            "YEAR5": "5 Rok"
+        }
+    }
+}

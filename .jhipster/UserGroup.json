@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "userExt",
+            "otherEntityName": "userExt",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "userGroup"
+        },
+        {
+            "relationshipName": "schedulingTimeFrame",
+            "otherEntityName": "schedulingTimeFrame",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "userGroup"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        }
+    ],
+    "changelogDate": "20180803232834",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "user_groups",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+    <h5>
+        <span jhiTranslate="geoTimeApp.classUnit.create.step2Title">Field of study and group</span>
+    </h5>
+</div>
+<form id="class-unit-create-step2-form" #form="ngForm">
+    <div class="form-group">
+        <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.academicUnit" for="field_academicUnit">Academic Unit</label><br/>
+        <ngx-select class="form-control" id="field_academicUnit" name="academicUnit" [items]="selectAcademicUnitsData"
+                    [(ngModel)]="classUnit.academicUnitId" required></ngx-select>
+    </div>
+    <div [hidden]="!(form.controls.academicUnit?.dirty && form.controls.academicUnit?.invalid)">
+        <small class="form-text text-danger"
+               [hidden]="!form.controls.academicUnit?.errors?.required" jhiTranslate="entity.validation.required">
+            This field is required.
+        </small>
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" jhiTranslate="geoTimeApp.classUnit.academicUnitGroup" for="field_academicUnitGroup">Academic Unit Group</label>
+        <select class="form-control" name="academicUnitGroup" [(ngModel)]="classUnit.academicUnitGroup" id="field_academicUnitGroup" >
+            <option [ngValue]="null"></option>
+            <option value="GROUP1">{{'geoTimeApp.AcademicUnitGroup.GROUP1' | translate}}</option>
+            <option value="GROUP2">{{'geoTimeApp.AcademicUnitGroup.GROUP2' | translate}}</option>
+            <option value="GROUP3">{{'geoTimeApp.AcademicUnitGroup.GROUP3' | translate}}</option>
+            <option value="GROUP4">{{'geoTimeApp.AcademicUnitGroup.GROUP4' | translate}}</option>
+            <option value="GROUP5">{{'geoTimeApp.AcademicUnitGroup.GROUP5' | translate}}</option>
+            <option value="GROUP6">{{'geoTimeApp.AcademicUnitGroup.GROUP6' | translate}}</option>
+        </select>
+    </div>
+</form>
